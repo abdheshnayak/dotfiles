@@ -8,7 +8,11 @@ refreshp &
 
 # compositing and wallpaper 
 
-picom & exec redshift & $(bspc config focus_follows_pointer true) &
+exec $(pgrep redshift && pkill -TERM redshift & redshift-gtk) &
+
+# exec redshift &
+
+picom  & $(bspc config focus_follows_pointer true) &
 
 feh --bg-fill ~/Pictures/wall/bg.jpg &
 xrdb merge ~/.Xresources &  # (terminal theme)

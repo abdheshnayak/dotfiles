@@ -1,10 +1,16 @@
-sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git base-devel
+sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh xfsudo 
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
 sudo rm -r yay
+
+git clone https://aur.archlinux.org/xfsudo.git
+cd xfsudo
+makepkg -si
+cd ..
+sudo rm -r xfsudo
 
 git clone https://aur.archlinux.org/xst-git.git
 cd xst-git

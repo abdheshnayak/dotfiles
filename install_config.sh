@@ -1,7 +1,7 @@
 sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git
 
 
-git clone git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..

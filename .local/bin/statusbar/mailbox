@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# i3blocks mail module.
+# Displays number of unread mail and an loading icon if updating.
+# When clicked, brings up `neomutt`.
+
+case $BLOCK_BUTTON in
+	1) "$TERMINAL" -e neomutt ;;
+	2) setsid mailsync >/dev/null & ;;
+	3) pgrep -x dunst >/dev/null && notify-send "📬 Mail module" "\- Shows unread mail
+- Shows 🔃 if syncing mail
+- Left click opens neomutt
+- Middle click syncs mail" ;;
+esac
+
+unread="$(find ~/.local/share/mail/*/INBOX/new/* -type f | wc -l 2>/dev/null)"
+
+icon="$(cat "/tmp/imapsyncicon_$USER")"
+
+[ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬 $unread$(cat "/tmp/imapsyncicon_$USER" 2>/dev/null)"

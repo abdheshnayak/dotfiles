@@ -2,7 +2,7 @@ owner_name=$(stat -c "%U %G" /sys/class/backlight/intel_backlight/brightness)
 user_name=$(whoami)
 if [[ $owner_name == $user_name ]]
 then
-	sudo chown vision:vision /sys/class/backlight/intel_backlight/brightness
+	sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness
 fi
 File_Name="/sys/class/backlight/intel_backlight/brightness"
 x=$(cat $File_Name)

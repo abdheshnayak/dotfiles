@@ -1,6 +1,7 @@
 sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git
 
 
+
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -18,6 +19,12 @@ cd st-git
 makepkg -si
 cd ..
 sudo rm -r st-git
+
+git clone https://aur.archlinux.org/polybar-git.git
+cd polybar-git
+makepkg -si
+cd ..
+sudo rm -r polybar-git
 
 sudo rm -r .git
 

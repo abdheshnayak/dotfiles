@@ -1,4 +1,4 @@
-sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git
+sudo pacman -S feh bspwm sxhkd maim xclip picom ttf-font-awesome rofi base-devel git base-devel
 
 git clone https://aur.archlinux.org/yay.git
 cd yay

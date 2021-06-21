@@ -1,4 +1,4 @@
-sudo pacman -S sbpwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop
+sudo pacman -S bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop
 
 git clone https://aur.archlinux.org/lf.git
 cd lf

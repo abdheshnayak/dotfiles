@@ -1,4 +1,10 @@
-sudo pacman -S feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh
+sudo pacman -S sbpwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop
+
+git clone https://aur.archlinux.org/lf.git
+cd lf
+makepkg -si
+cd ..
+sudo rm -r lf
 
 
 git clone https://aur.archlinux.org/yay.git
@@ -25,8 +31,8 @@ makepkg -si
 cd ..
 sudo rm -r st-git
 
-git clone https://aur.archlinux.org/polybar-git.git
-cd polybar-git
+git clone https://aur.archlinux.org/polybar.git
+cd polybar
 makepkg -si
 cd ..
 sudo rm -r polybar-git
@@ -34,3 +40,5 @@ sudo rm -r polybar-git
 sudo rm -r .git
 
 cp -r . ~/
+
+chsh -s $(which zsh)

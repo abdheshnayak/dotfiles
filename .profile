@@ -15,6 +15,7 @@ export BROWSER="google-chrome-stable"
 export READER="zathura"
 export FILE="ranger"
 export STATUSBAR="refreshp"
+export DEVSHELL = "eval $(starship init zsh)"
 
 # ~/ Clean-up:
 #export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.

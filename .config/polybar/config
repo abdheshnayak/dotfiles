@@ -41,7 +41,7 @@ font-3 = Font Awesome 5 Brands:style=Regular:size=14;2
 font-4 = Material Design Icons:style=Regular:size=16;2
 
 ;wm-restack = bspwm
-wm-restack = i3
+wm-restack = i3 bspwm
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -78,7 +78,7 @@ cursor-click = pointer
 
 
 
-modules-left = i3
+modules-left = i3 bspwm
 modules-right = network right-end-middle-twoo pulseaudio brightness right-end-middle battery right-end-middle-twoo date
 
 

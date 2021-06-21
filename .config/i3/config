@@ -58,7 +58,7 @@ bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+Shift+space 	floating toggle
-bindsym $mod+space		focus mode_toggle
+bindsym $mod+space		exec --no-startup-id rofimenu
 
 # bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"

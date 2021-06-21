@@ -1,4 +1,4 @@
-sudo pacman -S feh i3-gap maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh
+sudo pacman -S feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh
 
 
 git clone https://aur.archlinux.org/yay.git

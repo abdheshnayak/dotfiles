@@ -1,10 +1,14 @@
-cd
-pacstrap -i /mnt base linux linux-firmware sudo nano
+cd &
 
-genfstab -U -p /mnt >> /mnt/etc/fstab
+pacstrap -i /mnt base linux linux-firmware sudo nano &
 
-arch-chroot /mnnt /bin/bash
+genfstab -U -p /mnt >> /mnt/etc/fstab &
 
-pacman -S grub networkmanager gdm xfce4-terminal git 
-systemctl enable gdm
+arch-chroot /mnnt /bin/bash &
+
+cd &
+
+pacman -S grub networkmanager gdm xfce4-terminal git &
+systemctl enable gdm &
 systemctl enable NetworkManager
+

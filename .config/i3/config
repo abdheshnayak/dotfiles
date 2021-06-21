@@ -4,7 +4,13 @@
 
 
 #exec --no-startup-id xrandr --output eDP-1 --mode 1280x720
-exec --no-startup-id redshift
+
+# exec --no-startup-id refreshp
+exec --no-startup-id picom
+exec --no-startup-id xrdb merge ~/.Xresources & refreshp
+exec --no-startup-id feh --bg-fill ~/Pictures/wall/bg.jpg
+exec --no-startup-id $(pgrep redshift && pkill -TERM redshift & redshift-gtk)
+
 
 # vim: filetype=i3
 # File originally by Luke Smith <https://lukesmith.xyz>
@@ -39,13 +45,13 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
-bar {
-	font pango:mono 18
-	status_command i3blocks
-	position top
-	mode dock
-	modifier None
-}
+# bar {
+# 	font pango:mono 18
+# 	status_command refreshp
+# 	position top
+# 	mode dock
+# 	modifier None
+# }
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -107,7 +113,7 @@ bindsym $mod+Shift+a		exec $term -e pulsemixer
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-bindsym $mod+d			exec --no-startup-id dmenu_run
+bindsym $mod+d			exec --no-startup-id rofimenu
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)

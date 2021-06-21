@@ -38,4 +38,4 @@ export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 # Switch escape and caps if tty and no passwd required:
 sudo -n loadkeys ~/.local/share/larbs/ttymaps.kmap 2>/dev/null
 
-PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/vision/.local/bin/__pycache__:/home/vision/.local/bin/statusbar:/home/vision/.local/bin/bspcmds:/home/vision/.local/bin/cron:/home/vision/.local/bin/:/home/vision/.config/rofi/bin
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/vision/.local/bin/__pycache__:/home/vision/.local/bin/statusbar:/home/vision/.local/bin/i3cmds:/home/vision/.local/bin/cron:/home/vision/.local/bin/:/home/vision/.config/rofi/bin

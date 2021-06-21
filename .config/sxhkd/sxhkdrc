@@ -238,4 +238,4 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer sset Master 5%-
 XF86AudioMute
-    amixer sset Master mute
+    pulseaudio-ctl mute

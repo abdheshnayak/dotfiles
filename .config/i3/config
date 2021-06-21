@@ -60,7 +60,7 @@ bindsym $mod+Shift+Return	exec --no-startup-id samedir
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
 
-bindsym $mod+Escape		workspace prev
+# bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
 # bindsym $mod+BackSpace
@@ -70,7 +70,7 @@ bindsym $mod+grave		exec --no-startup-id dmenuunicode
 ##bindsym $mod+asciitilde
 
 #STOP/HIDE EVERYTHING:
-bindsym $mod+Shift+Delete	exec --no-startup-id amixer sset Master mute ; exec --no-startup-id mpc pause && pkill -RTMIN+10 i3blocks ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
+bindsym $mod+Shift+Delete	exec --no-startup-id amixer sset Master mute ; exec toggle_polybar ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
@@ -123,7 +123,7 @@ mode "$freeze" { bindsym $mod+Shift+f mode "default"
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
-bindsym $mod+g			workspace prev
+# bindsym $mod+g			workspace prev
 bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
 
 bindsym $mod+h			focus left
@@ -154,7 +154,7 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 #bindsym $mod+Shift+v
 
-bindsym $mod+b			bar mode toggle
+bindsym $mod+b			exec toggle_polybar
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
 
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
@@ -195,6 +195,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+
 # switch to workspace
 bindsym $mod+1		workspace $ws1
 bindsym $mod+2		workspace $ws2
@@ -207,6 +208,7 @@ bindsym $mod+8		workspace $ws8
 bindsym $mod+9		workspace $ws9
 bindsym $mod+0		workspace $ws10
 
+
 # move focused container to workspace
 bindsym $mod+Shift+1	move container to workspace $ws1
 bindsym $mod+Shift+2	move container to workspace $ws2
@@ -218,6 +220,7 @@ bindsym $mod+Shift+7	move container to workspace $ws7
 bindsym $mod+Shift+8	move container to workspace $ws8
 bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
+
 
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
@@ -251,7 +254,7 @@ bindsym $mod+F12	exec $term -e nmtui
 bindsym $mod+Left		focus left
 bindsym $mod+Shift+Left		move left
 bindsym $mod+Ctrl+Left		move workspace to output left
-bindsym $mod+Down		focus down
+bindsym $mod+Down		focus downq
 bindsym $mod+Shift+Down		move down
 bindsym $mod+Ctrl+Down		move workspace to output down
 bindsym $mod+Up			focus up
@@ -277,10 +280,13 @@ bindsym $mod+Shift+less		exec --no-startup-id mpc seek 0%
 bindsym $mod+greater		exec --no-startup-id mpc next
 bindsym $mod+Shift+greater	exec --no-startup-id mpc next
 
+# workplace left right
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 # For advancing forward/backward in an mpd song
-bindsym $mod+bracketleft 	exec --no-startup-id mpc seek -10
+# bindsym $mod+bracketleft 	exec --no-startup-id mpc seek -10
 bindsym $mod+Shift+bracketleft 	exec --no-startup-id mpc seek -120
-bindsym $mod+bracketright 	exec --no-startup-id mpc seek +10
+# bindsym $mod+bracketright 	exec --no-startup-id mpc seek +10
 bindsym $mod+Shift+bracketright exec --no-startup-id mpc seek +120
 
 # For screenshots and recording
@@ -330,7 +336,7 @@ bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
 bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
 ##bindsym XF86Phone		exec
 ##bindsym XF86Tools		exec
-bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
+bindsym XF86HomePage		exec $BROWSER https://anayak.com.np
 bindsym XF86Reload		restart
 ##bindsym XF86ScrollUp		exec
 ##bindsym XF86ScrollDown		exec

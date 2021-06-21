@@ -1,25 +1,24 @@
 
 [colors]
+background = #1d2021
+foreground = #d5c4a2
+color0 = #1d2021
+color1 = #3c3836
+color2 = #504945
+color3 = #665c54
+color4 = #bdae93
+color5 = #d5c4a2
+color6 = #ebdbb2
+color7 =  #fbf1c7
+color8 = #fb4934
+color9 = #fe8019
+color10 = #fabd2f
+color11 = #b8bb26
+color12 = #8ec07c
+color13 = #83a598
+color14 = #d3869b
+color15 = #d65d0e
 
-
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-color0 = ${xrdb:colour0}
-color1 = ${xrdb:colour1}
-color2 = ${xrdb:colour2}
-color3 = ${xrdb:colour3}
-color4 = ${xrdb:colour4}
-color5 = ${xrdb:colour5}
-color6 = ${xrdb:colour6}
-color7 = ${xrdb:colour7}
-color8 = ${xrdb:colour8}
-color9 = ${xrdb:colour9}
-color10 = ${xrdb:colour10}
-color11 = ${xrdb:colour11}
-color12 = ${xrdb:colour12}
-color13 = ${xrdb:colour13}
-color14 = ${xrdb:colour14}
-color15 = ${xrdb:colour15}
 
 
 [bar/black]
@@ -113,45 +112,62 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = false
 
-format = <label-state>
 
-ws-icon-0 = I;%{F#c2f0fc}1
-ws-icon-1 = II;%{F#fabea7}2
-ws-icon-2 = III;%{F#88e1f2}3
-ws-icon-3 = IV;%{F#e36387}4
-ws-icon-4 = V;%{F#cceabb}5
-ws-icon-5 = VI;6
-ws-icon-6 = VII;%{F#c2f0fc}7
-ws-icon-7 = VIII;%{F#c2f0fc}8
-ws-icon-8 = IX;%{F#ffffff}9
-ws-icon-9 = X;%{F#c2f0fc}10
-ws-icon-10 = XI;%{F#fabea7}11
-ws-icon-11 = XII;%{F#88e1f2}12
-ws-icon-12 = XIII;%{F#e36387}13
-ws-icon-13 = XIV;%{F#cceabb}14
-ws-icon-14 = XV;%{F#88e1f2}15
-ws-icon-15 = XV;%{F#fabea7}16
+;format = <label-state>
+
+ws-icon-0 = 1;%{F#c2f0fc}1
+ws-icon-1 = 2;%{F#fabea7}2
+ws-icon-2 = 3;%{F#88e1f2}3
+ws-icon-3 = 4;%{F#e36387}4
+ws-icon-4 = 5;%{F#cceabb}5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;%{F#c2f0fc}7
+ws-icon-7 = 8;%{F#c2f0fc}8
+ws-icon-8 = 9;%{F#ffffff}9
+ws-icon-9 = 10;%{F#c2f0fc}10
+ws-icon-10 = 11;%{F#fabea7}11
+ws-icon-11 = 12;%{F#88e1f2}12
+ws-icon-12 = 13;%{F#e36387}13
+ws-icon-13 = 14;%{F#cceabb}14
+ws-icon-14 = 15;%{F#88e1f2}15
+ws-icon-15 = 16;%{F#fabea7}16
 
 
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+;label-mode-padding = 2
+;label-mode-foreground = ${color.background}
+;label-mode-background = ${colors.foreground}
+
+; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.foreground}
-label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.color5}
+label-focused-foreground = ${colors.color0}
+;label-focused-underline= ${colors.background}
 label-focused-padding = 1
-;label-focused-underline = ${colors.foreground}
 
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
 
-label-occupied = %index%
-;label-occupied-underline = ${colors.foreground}
-label-occupied-padding = 1
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
 
-label-empty = %index%
-label-empty-foreground =#ffffff
-label-empty-padding = 1
-
+; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-foreground = #88C0D0
+label-urgent-background = ${colors.color3}
 label-urgent-padding = 1
 
+; Separator in between workspaces
+; label-separator = |
 
 [module/bspwm]
 type = internal/bspwm
@@ -220,7 +236,7 @@ interval = 5
 
 time  = %I:%M %p
 format-foreground = ${colors.color0}
-format-background = ${colors.color4}
+format-background = ${colors.color13}
 label = "%{A1:applet_time:} %time%%{A}"
 format-padding = 1
 
@@ -233,7 +249,7 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 label-charging = %percentage%%
-format-charging-foreground = ${colors.color4}
+format-charging-foreground = ${colors.color13}
 format-charging-background = ${colors.background}
 
 format-discharging = <ramp-capacity> <label-discharging>
@@ -242,13 +258,13 @@ format-discharging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.background}
 
 format-full-prefix = "  "
-format-full-prefix-foreground = ${colors.color4}
+format-full-prefix-foreground = ${colors.color13}
 label-full = "%percentage%% "
-format-foreground = ${colors.color4}
+format-foreground = ${colors.color13}
 format-background = ${colors.background}
 
 label-discharging-foreground = ${colors.foreground}
-label-charging-foreground = ${colors.color4}
+label-charging-foreground = ${colors.color13}
 label-padding = 1
 
 ramp-capacity-0 = 
@@ -263,7 +279,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.color4}
+animation-charging-foreground = ${colors.color13}
 animation-charging-framerate = 750
 
 format-charging-padding = 1
@@ -275,13 +291,13 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 label-volume =   %percentage%%
 label-volume-foreground = ${colors.color0}
-label-volume-background = ${colors.color4}
+label-volume-background = ${colors.color13}
 label-volume-padding=1
 
 
 label-muted = " Muted"
 label-muted-foreground = ${colors.color0}
-label-muted-background = ${colors.color4}
+label-muted-background = ${colors.color13}
 label-muted-padding=1
 
 bar-volume-width = 10
@@ -326,7 +342,7 @@ click-left = ~/Documents/scripts/toss.sh --toss
 
 [module/decor]
 type = custom/text
-content-background = ${colors.color4}
+content-background = ${colors.color13}
 content-foreground = ${colors.color0}
 
 [module/left-end]
@@ -371,7 +387,7 @@ content-foreground = #88e1f2
 inherit = module/decor
 content = "%{T3}%{T-}"
 content-background = ${colors.color0}
-content-foreground =  ${colors.color4}
+content-foreground =  ${colors.color13}
 
 
 [module/square]
@@ -414,7 +430,7 @@ type = internal/network
 interface = wlp3s0
 interval = 1.0
 format-connected-prefix = " "
-format-connected-prefix-foreground=${colors.color12}
+format-connected-prefix-foreground=${colors.color5}
 label-connected = "%downspeed% "
 ;label-disconnected = ""
 format-connected-padding = 1

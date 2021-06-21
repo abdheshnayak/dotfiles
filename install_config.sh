@@ -42,3 +42,9 @@ sudo rm -r .git
 cp -r . ~/
 
 chsh -s $(which zsh)
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+cd 
+
+rm install_config.sh install_arch.sh

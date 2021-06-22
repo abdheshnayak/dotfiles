@@ -111,15 +111,15 @@ EOF
 
 dir=$(pwd)
 
-show_intro &&
-install_packages  &&
-create_work_dir  &&
-setup_lf  &&
-setup_yay  &&
-setup_xfsudo  &&
-setup_xst_st  &&
-setup_polybar  &&
-setup_powerlevezsh  &&
+show_intro 
+install_packages  
+create_work_dir  
+setup_lf  
+setup_yay  
+setup_xfsudo  
+setup_xst_st  
+setup_polybar  
+setup_powerlevezsh  
 
 
 sudo rm -r ~/abdhesh_lkjd
@@ -160,6 +160,7 @@ cat << EOF
             ############################################
 EOF
 
-cd
+
 sudo rm -r "$dir"
-cd
+
+cd ~/

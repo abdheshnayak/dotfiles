@@ -1,17 +1,8 @@
+#!/bin/bash
 # functions
-setup_lf(){
-    git clone https://aur.archlinux.org/lf.git ~/abdhesh_lkjd/lf
-    cd ~/abdhesh_lkjd/lf
-    makepkg -si
-}
 
-setup_yay(){
-    git clone https://aur.archlinux.org/yay.git ~/abdhesh_lkjd/yay
-    cd ~/abdhesh_lkjd/yay
-    makepkg -si
-}
-# Tasks to be done
-cat << EOF
+show_intro(){
+    cat << EOF
             ############################################
             #    Script processes the following        #
             ############################################
@@ -23,6 +14,32 @@ cat << EOF
             #            6. ranger Setup               #
             ############################################
 EOF
+}
+
+setup_lf(){
+    cat << EOF
+            ############################################
+                Installing lf Terminal File Manager    
+            ############################################
+EOF
+
+    git clone https://aur.archlinux.org/lf.git ~/abdhesh_lkjd/lf
+    cd ~/abdhesh_lkjd/lf
+    makepkg -si
+}
+
+setup_yay(){
+    cat << EOF
+            ############################################
+                Installing yay package manager    
+            ############################################
+EOF
+
+    git clone https://aur.archlinux.org/yay.git ~/abdhesh_lkjd/yay
+    cd ~/abdhesh_lkjd/yay
+    makepkg -si
+}
+# Tasks to be done
 
 
 cat << EOF
@@ -46,21 +63,9 @@ dir = $(pwd)
 $(mkdir ~/abdhesh_lkjd) &&
 
 
-cat << EOF
-############################################
-    Installing lf Terminal File Manager    
-############################################
-EOF
 
-setup_lf();
-
-cat << EOF
-############################################
-    Installing yay package manager    
-############################################
-EOF
-
-setup_yay();
+setup_lf 
+setup_yay 
 
 cat << EOF
 ############################################

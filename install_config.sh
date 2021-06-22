@@ -22,8 +22,8 @@ install_packages(){
 }
 
 create_work_dir(){
-    ([[ -d $dir ]] || [[ -L $dir ]]) && \
-        sudo rm -r $dir
+    ([[ -d ~/abdhesh_lkjd ]] || [[ -L ~/abdhesh_lkjd ]]) && \
+        sudo rm -r $dir && mkdir ~/abdhesh_lkjd
 }
 
 setup_lf(){
@@ -109,7 +109,7 @@ EOF
 
 }
 
-dir = $(pwd)
+dir=$(pwd)
 
 show_intro &&
 install_packages  &&
@@ -130,7 +130,7 @@ cat << EOF
             ############################################
 EOF
 
-sudo rm -r $dir/.git
+sudo rm -r "$dir/.git"
 
 cd $dir
 

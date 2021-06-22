@@ -17,8 +17,9 @@ st.font:           JetBrainsMono Nerd Font Mono :pixelsize=22 , Material Design 
 ! Base16 Gruvbox dark, hard
 ! Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
+
 #define base00 #1d2021
-#define base01 #3c3836
+#define base01 #51c501
 #define base02 #504945
 #define base03 #665c54
 #define base04 #bdae93
@@ -42,20 +43,20 @@ st.font:           JetBrainsMono Nerd Font Mono :pixelsize=22 , Material Design 
 #endif
 *cursorColor:  base05
 
-*colour0:       base00
-*colour1:       base08
-*colour2:       base0B
-*colour3:       base0A
-*colour4:       base0D
-*colour5:       base0E
-*colour6:       base0C
-*colour7:       base05
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
 
-*colour8:       base03
-*colour9:       base09
-*colour10:      base01
-*colour11:      base02
-*colour12:      base04
-*colour13:      base06
-*colour14:      base0F
-*colour15:      base07
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07

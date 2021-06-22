@@ -7,9 +7,9 @@
 
 # exec --no-startup-id refreshp
 exec --no-startup-id picom
-exec --no-startup-id xrdb merge ~/.Xresources & refreshp
+exec --no-startup-id $(xrdb merge ~/.Xresources) && refreshp
 exec --no-startup-id feh --bg-fill ~/Pictures/wall/bg.jpg
-exec --no-startup-id $(pgrep redshift && pkill -TERM redshift & redshift-gtk)
+exec --no-startup-id $(pgrep redshift && pkill -TERM redshift && redshift-gtk)
 
 
 # vim: filetype=i3

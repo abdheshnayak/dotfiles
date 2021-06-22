@@ -8,7 +8,7 @@ This is my configuration file of bspwm & i3wm(i3-gaps) both and some more tools 
 
 So, to use it first install Arch Linux to your system and start a display manager I recommend gdm for easy access.
 
-You can flow this tutorial to install ArchLinux : [https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/](https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/)
+You can follow this tutorial to install ArchLinux : [https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/](https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/)
 
 Then install these configuration files.
 

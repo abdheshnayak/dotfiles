@@ -121,17 +121,17 @@ ws-icon-1 = 2;%{F#fabea7}2
 ws-icon-2 = 3;%{F#88e1f2}3
 ws-icon-3 = 4;%{F#e36387}4
 ws-icon-4 = 5;%{F#cceabb}5
-ws-icon-5 = 6;6
-ws-icon-6 = 7;%{F#c2f0fc}7
-ws-icon-7 = 8;%{F#c2f0fc}8
-ws-icon-8 = 9;%{F#ffffff}9
-ws-icon-9 = 10;%{F#c2f0fc}10
-ws-icon-10 = 11;%{F#fabea7}11
-ws-icon-11 = 12;%{F#88e1f2}12
-ws-icon-12 = 13;%{F#e36387}13
-ws-icon-13 = 14;%{F#cceabb}14
-ws-icon-14 = 15;%{F#88e1f2}15
-ws-icon-15 = 16;%{F#fabea7}16
+ws-icon-5 = 6;%{F#c2f0fc}6
+ws-icon-6 = 7;%{F#fabea7}7
+ws-icon-7 = 8;%{F#88e1f2}8
+ws-icon-8 = 9;%{F#e36387}9
+ws-icon-9 = 10;%{F#cceabb}10
+ws-icon-10 = 11;%{F#c2f0fc}11
+ws-icon-11 = 12;%{F#fabea7}12
+ws-icon-12 = 13;%{F#88e1f2}13
+ws-icon-13 = 14;%{F#e36387}14
+ws-icon-14 = 15;%{F#cceabb}15
+ws-icon-15 = 16;%{F#c2f0fc}16
 
 
 format = <label-state> <label-mode>
@@ -415,16 +415,17 @@ label-close-padding = 1
 label-separator = " | "
 
 menu-0-0 = ""
-menu-0-0-exec = sudo poweroff
+menu-0-0-exec = $(prompt "Shutdown computer?" "sudo -A shutdown -h now")
 menu-0-1 = 
-menu-0-1-exec = sudo reboot
+menu-0-1-exec = $(prompt "Reboot computer?" "sudo -A reboot")
 menu-0-2 = 
-menu-0-2-exec = sudo zzz
+;menu-0-2-exec = sudo zzz
+menu-0-2-exec = $(sudo -A systemctl suspend)
 menu-0-3 = 
-menu-0-3-exec = bspc quit
+;menu-0-3-exec = bspc quit
+menu-0-3-exec = $(prompt "Exit i3?" "i3-msg exit")
 menu-0-4 = 
-menu-0-4-exec = xset dpms force off
-
+menu-0-4-exec =  $(mpc pause) & pauseallmpv & $(i3lock -e -f -c 1d2021) & $(xset dpms force off)
 
 [module/network]
 type = internal/network

@@ -9,7 +9,7 @@ show_intro(){
             ############################################
 
             PACKAGES: bspwm sxhkd feh i3-gaps maim xclip
-                    picom ttf-font-awesome rofi 
+                    picom ttf-font-awesome rofi
                     base-devel git base-devel zsh dmenu
                     ranger htop
 
@@ -29,7 +29,7 @@ create_work_dir(){
 setup_lf(){
     cat << EOF
             ############################################
-                Installing lf Terminal File Manager    
+                Installing lf Terminal File Manager
             ############################################
 EOF
 
@@ -41,7 +41,7 @@ EOF
 setup_yay(){
     cat << EOF
             ############################################
-                Installing yay package manager    
+                Installing yay package manager
             ############################################
 EOF
 
@@ -53,7 +53,7 @@ EOF
 setup_xfsudo(){
     cat << EOF
             ############################################
-                Installing xfsudo password prompt    
+                Installing xfsudo password prompt
             ############################################
 EOF
 
@@ -66,7 +66,7 @@ EOF
 setup_xst_st(){
     cat << EOF
             ############################################
-                Installing xst Terminal    
+                Installing xst Terminal
             ############################################
 EOF
 
@@ -76,7 +76,7 @@ EOF
 
     cat << EOF
             ############################################
-                Installing st Terminal   
+                Installing st Terminal
             ############################################
 EOF
 
@@ -89,7 +89,7 @@ EOF
 setup_polybar(){
     cat << EOF
             ############################################
-                Installing Polybar    
+                Installing Polybar
             ############################################
 EOF
     git clone https://aur.archlinux.org/polybar.git ~/abdhesh_lkjd/polybar
@@ -100,7 +100,7 @@ EOF
 setup_powerlevezsh(){
     cat << EOF
             ############################################
-                Installing powerlevel10k    
+                Installing powerlevel10k
             ############################################
 EOF
 
@@ -111,22 +111,22 @@ EOF
 
 dir=$(pwd)
 
-show_intro 
-install_packages  
-create_work_dir  
-setup_lf  
-setup_yay  
-setup_xfsudo  
-setup_xst_st  
-setup_polybar  
-setup_powerlevezsh  
+show_intro
+install_packages
+create_work_dir
+setup_lf
+setup_yay
+setup_xfsudo
+setup_xst_st
+setup_polybar
+setup_powerlevezsh
 
 
 sudo rm -r ~/abdhesh_lkjd
 
 cat << EOF
             ############################################
-                        Installation done    
+                        Installation done
             ############################################
 EOF
 
@@ -136,7 +136,7 @@ cd "$dir"
 
 cat << EOF
             ############################################
-                        Installing Configs              
+                        Installing Configs
             ############################################
 EOF
 
@@ -144,7 +144,7 @@ cp -r "$dir/." ~/
 
 cat << EOF
             ############################################
-                        zsh Setup    
+                        zsh Setup
             ############################################
 EOF
 
@@ -156,7 +156,7 @@ rm ~/install_config.sh
 
 cat << EOF
             ############################################
-                        Installation Done    
+                        Installation Done
             ############################################
 EOF
 

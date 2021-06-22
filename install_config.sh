@@ -23,7 +23,8 @@ install_packages(){
 
 create_work_dir(){
     ([[ -d ~/abdhesh_lkjd ]] || [[ -L ~/abdhesh_lkjd ]]) && \
-        sudo rm -r $dir && mkdir ~/abdhesh_lkjd
+        sudo rm -r $dir
+    mkdir ~/abdhesh_lkjd
 }
 
 setup_lf(){
@@ -140,7 +141,9 @@ cat << EOF
             ############################################
 EOF
 
-cp -r "$dir/." ~/
+cd $dir
+
+cp -r . ~/
 
 cat << EOF
             ############################################

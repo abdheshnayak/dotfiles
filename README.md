@@ -1,5 +1,7 @@
 # Dotfiles
 
+![i3wm](/screenshot.png)
+
 This is my configuration file of bspwm & i3wm(i3-gaps) both and some more tools used with it like rofi, ranger, st, etc.
 
 ## How to use it?

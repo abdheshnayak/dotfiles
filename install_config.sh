@@ -28,17 +28,7 @@ create_work_dir(){
     mkdir ~/abdhesh_lkjd
 }
 
-setup_lf(){
-    cat << EOF
-            ############################################
-                Installing lf Terminal File Manager
-            ############################################
-EOF
 
-    git clone https://aur.archlinux.org/lf.git ~/abdhesh_lkjd/lf
-    cd ~/abdhesh_lkjd/lf
-    makepkg -si
-}
 
 setup_yay(){
     cat << EOF
@@ -53,56 +43,13 @@ EOF
 }
 
 install_aur_packages(){
-    yay -S lf xfsudo xst st polybar
+    yay -S lf xfsudo xst-git st-git polybar
 }
 
 
-setup_xfsudo(){
-    cat << EOF
-            ############################################
-                Installing xfsudo password prompt
-            ############################################
-EOF
-
-    git clone https://aur.archlinux.org/xfsudo.git ~/abdhesh_lkjd/xfsudo
-    cd ~/abdhesh_lkjd/xfsudo
-    makepkg -si
-}
 # Tasks to be done
 
-setup_xst_st(){
-    cat << EOF
-            ############################################
-                Installing xst Terminal
-            ############################################
-EOF
 
-    git clone https://aur.archlinux.org/xst-git.git ~/abdhesh_lkjd/xst-git
-    cd ~/abdhesh_lkjd/xst-git
-    makepkg -si
-
-    cat << EOF
-            ############################################
-                Installing st Terminal
-            ############################################
-EOF
-
-    git clone https://aur.archlinux.org/st-git.git ~/abdhesh_lkjd/st-git
-    cd ~/abdhesh_lkjd/st-git
-    makepkg -si
-
-}
-
-setup_polybar(){
-    cat << EOF
-            ############################################
-                Installing Polybar
-            ############################################
-EOF
-    git clone https://aur.archlinux.org/polybar.git ~/abdhesh_lkjd/polybar
-    cd ~/abdhesh_lkjd/polybar
-    makepkg -si
-}
 
 setup_powerlevezsh(){
     cat << EOF

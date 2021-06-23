@@ -42,6 +42,18 @@ EOF
     makepkg -si
 }
 
+setup_luke_st(){
+    cat << EOF
+            ############################################
+                Setting Luke ST Terminal
+            ############################################
+EOF
+    git clone https://github.com/LukeSmithxyz/st  ~/abdhesh_lkjd/st
+    cd ~/abdhesh_lkjd/st
+    sudo make install
+}
+
+
 install_aur_packages(){
     yay -S lf xfsudo xst-git st-git polybar ttf-material-design-icons nerd-fonts-jetbrains-mono
 }
@@ -63,6 +75,7 @@ EOF
 
 }
 
+
 dir=$(pwd)
 
 show_intro
@@ -70,10 +83,7 @@ install_packages
 create_work_dir
 setup_yay
 install_aur_packages
-# setup_lf
-# setup_xfsudo
-# setup_xst_st
-# setup_polybar
+setup_luke_st
 setup_powerlevezsh
 
 

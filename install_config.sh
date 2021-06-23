@@ -18,7 +18,7 @@ EOF
 }
 
 install_packages(){
-    sudo pacman -S bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop
+    sudo pacman -S bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop yay ttf-indic-otf
 }
 
 create_work_dir(){
@@ -165,5 +165,7 @@ EOF
 
 
 sudo rm -r "$dir"
+
+ln -s ~/.profile ~/.zprofile
 
 cd ~/

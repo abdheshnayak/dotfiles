@@ -4,7 +4,7 @@ owner_name=$(stat -c "%U" /sys/class/backlight/intel_backlight/brightness)
 user_name=$(whoami)
 if [[ $owner_name != $user_name ]]
 then
-	xfsudo chown vision:vision /sys/class/backlight/intel_backlight/brightness
+	xfsudo chown $user_name:$user_name /sys/class/backlight/intel_backlight/brightness
 fi
 File_Name="/sys/class/backlight/intel_backlight/brightness"
 x=$(cat $File_Name)

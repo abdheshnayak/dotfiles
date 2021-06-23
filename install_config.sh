@@ -45,7 +45,7 @@ EOF
 
 newperms() { # Set special sudoers settings for install (or after).
 	sudo sed -i "/#LARBS/d" /etc/sudoers
-	echo "$* #LARBS" >> /etc/sudoers ;
+	sudo echo "$* #LARBS" >> /etc/sudoers ;
 }
 
 

@@ -21,6 +21,7 @@ install_packages(){
     sudo pacman -S bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git base-devel zsh dmenu ranger htop yay ttf-indic-otf
 }
 
+
 create_work_dir(){
     ([[ -d ~/abdhesh_lkjd ]] || [[ -L ~/abdhesh_lkjd ]]) && \
         sudo rm -r $dir
@@ -50,6 +51,11 @@ EOF
     cd ~/abdhesh_lkjd/yay
     makepkg -si
 }
+
+install_aur_packages(){
+    yay -S lf xfsudo xst st polybar
+}
+
 
 setup_xfsudo(){
     cat << EOF
@@ -115,11 +121,12 @@ dir=$(pwd)
 show_intro
 install_packages
 create_work_dir
-setup_lf
 setup_yay
-setup_xfsudo
-setup_xst_st
-setup_polybar
+install_aur_packages
+# setup_lf
+# setup_xfsudo
+# setup_xst_st
+# setup_polybar
 setup_powerlevezsh
 
 

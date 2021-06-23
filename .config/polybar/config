@@ -51,7 +51,7 @@ cursor-scroll = ns-resize
 
 modules-left = xwindow
 ;modules-center = xwindow
-modules-right = cpu right-end-middle-two  mem right-end-middle  wlan  powermenu
+modules-right = right-end-middle-two cpu  right-end-middle  mem  right-end-middle-twoo  wlan right-end-middlee powermenu 
 
 [bar/black-top]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -80,14 +80,17 @@ cursor-click = pointer
 
 
 modules-left = i3 bspwm
-modules-right = network right-end-middle-twoo pulseaudio brightness right-end-middle battery right-end-middle-twoo date
+modules-right = network right-end-middle-twoo pulseaudio right-end-middlee-two brightness right-end-middle battery right-end-middle-twoo date
 
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.color9}
+format-prefix = "  "
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.foreground}
+label-foreground = ${colors.background}
+label-background = ${colors.foreground}
 label = "%percentage:2%% "
 
 
@@ -97,10 +100,10 @@ exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
 
 format = <label>
 format-prefix= " "
-format-prefix-foreground = ${colors.background}
-format-prefix-background = ${colors.foreground}
-format-foreground = ${colors.background}
-format-background = ${colors.foreground}
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 format-padding = 1
 
 
@@ -370,7 +373,13 @@ content-background = #88e1f2
 [module/right-end-middlee]
 inherit = module/decor
 content = "%{T3}%{T-}"
-content-background =  ${colors.foreground}
+content-background =  ${colors.color4}
+
+[module/right-end-middlee-two]
+inherit = module/decor
+content = "%{T3}%{T-}"
+content-background =  ${colors.color4}
+content-foreground = $(color.foreground)
 
 
 [module/right-end-middle-two]
@@ -384,11 +393,14 @@ inherit = module/decor
 content = "%{T3}%{T-}"
 content-background = ${colors.color0}
 content-foreground = #88e1f2
+
 [module/right-end-middle-twoo]
 inherit = module/decor
 content = "%{T3}%{T-}"
 content-background = ${colors.color0}
 content-foreground =  ${colors.color4}
+
+
 
 
 [module/square]
@@ -403,28 +415,29 @@ expand-right = false
 #format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.background}
-label-open-background = #cceabb
+label-open-foreground = ${colors.foreground}
+label-open-background = ${colors.background}
 label-open-padding = 1
 label-close = 
-label-close-foreground = ${colors.background}
-label-close-background = ${colors.foreground}
-
+label-close-foreground = ${colors.foreground}
+label-close-background = ${colors.background}
 label-close-padding = 1
 
-label-separator = " | "
+label-separator = "|"
 
-menu-0-0 = ""
+menu-background = ${colors.foreground}
+
+menu-0-0 = "  "
 menu-0-0-exec = $(prompt "Shutdown computer?" "sudo -A shutdown -h now")
-menu-0-1 = 
+menu-0-1 = "  "
 menu-0-1-exec = $(prompt "Reboot computer?" "sudo -A reboot")
-menu-0-2 = 
+menu-0-2 = "  "
 ;menu-0-2-exec = sudo zzz
 menu-0-2-exec = $(sudo -A systemctl suspend)
-menu-0-3 = 
+menu-0-3 = "  "
 ;menu-0-3-exec = bspc quit
 menu-0-3-exec = $(prompt "Exit i3?" "i3-msg exit")
-menu-0-4 = 
+menu-0-4 = "  "
 menu-0-4-exec =  $(mpc pause) & pauseallmpv & $(i3lock -e -f -c 1d2021) & $(xset dpms force off)
 
 [module/network]
@@ -444,7 +457,8 @@ interval = 3.0
 
 format-connected =  <label-connected>
 label-connected = "%{A1:wifi:}  %essid%%{A}"
-label-connected-foreground = #88e1f2
+label-connected-foreground = ${colors.background}
+label-connected-background = ${colors.color4}
 label-connected-padding = 1
 
 ;format-disconnected =

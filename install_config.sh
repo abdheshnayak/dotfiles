@@ -18,7 +18,7 @@ EOF
 }
 
 install_packages(){
-    sudo pacman -S bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git zsh dmenu ranger htop ttf-indic-otf cmake
+    sudo pacman -Syu bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git zsh dmenu ranger htop ttf-indic-otf cmake
 }
 
 

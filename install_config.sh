@@ -18,7 +18,7 @@ EOF
 }
 
 install_packages(){
-    sudo pacman -Syu bspwm sxhkd feh i3-gaps maim xclip picom ttf-font-awesome rofi base-devel git zsh dmenu ranger htop ttf-indic-otf cmake go
+    sudo pacman -Syu bspwm sxhkd feh i3-gaps maim xclip picom rofi base-devel git zsh dmenu ranger htop  cmake go  ttf-font-awesome ttf-jetbrains-mon ttf-indic-otf alsa-card-profiles alsa-lib alsa-plugins alsa-topology-conf alsa-ucm-conf alsa-utils pulseaudio-alsa zita-alsa-pcmi
 }
 
 
@@ -43,7 +43,7 @@ EOF
 }
 
 install_aur_packages(){
-    yay -S lf xfsudo xst-git st-git polybar
+    yay -S lf xfsudo xst-git st-git polybar ttf-material-design-icons
 }
 
 

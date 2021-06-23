@@ -18,7 +18,7 @@ EOF
 }
 
 install_packages(){
-    sudo pacman -Syu bspwm sxhkd feh i3-gaps maim xclip picom rofi base-devel git zsh dmenu ranger htop  cmake go  ttf-font-awesome ttf-indic-otf alsa-card-profiles alsa-lib alsa-plugins alsa-topology-conf alsa-ucm-conf alsa-utils pulseaudio-alsa zita-alsa-pcmi xorg-xset dunst unclutter mpc
+    sudo pacman -Syu bspwm sxhkd feh i3-gaps maim xclip picom rofi base-devel git zsh dmenu ranger htop  cmake go  ttf-font-awesome ttf-indic-otf alsa-card-profiles alsa-lib alsa-plugins alsa-topology-conf alsa-ucm-conf alsa-utils pulseaudio-alsa zita-alsa-pcmi xorg-xset dunst unclutter mpc redshift
 }
 
 

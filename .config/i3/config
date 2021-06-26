@@ -29,8 +29,8 @@ exec --no-startup-id $(pkill -TERM redshift && redshift-gtk)
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
-gaps inner 2
-gaps outer 2
+gaps inner 4
+gaps outer 4
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill

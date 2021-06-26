@@ -112,7 +112,7 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+Q\fP \(en Force close window
 .ITEM
-\f(CWMod+d\fP \(en dmenu (For running commands or programs without shortcuts)
+\f(CWMod+space\fP \(en rofi (For running commands or programs without shortcuts)
 .ITEM
 \f(CWMod+h/j/k/l\fP \(en Move to different windows
 .ITEM

@@ -1,22 +1,28 @@
 #!/bin/bash
+
 #Setting Up Resulution
 #exec_always --no-startup-id xrandr --output eDP-1 --mode 1280x720
-
-
+# or
 #exec --no-startup-id xrandr --output eDP-1 --mode 1280x720
 
-# exec --no-startup-id refreshp
+
+# ------------ Starting some applications --------------- #
+
+# composite manager
 exec --no-startup-id picom
+# terminal st theme and refresh polybar
 exec --no-startup-id $(xrdb merge ~/.Xresources) && refreshp
+# Setting background wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/wall/bg.jpg
-exec --no-startup-id $(pgrep redshift && pkill -TERM redshift && redshift-gtk)
+# killing previous redshift instance and starting new redshift instance
+exec --no-startup-id $(pkill -TERM redshift && redshift-gtk)
 
 
-# vim: filetype=i3
 # File originally by Luke Smith <https://lukesmith.xyz>
+# File Modified by Abdhesh Nayak <https://anayak.com.np>
 
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
-# You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
+# You can set these variables in ~/.profile if you have it as below:
 #
 # export FILE="ranger"
 # export TERMINAL="xfce4-terminal"
@@ -45,13 +51,6 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
-# bar {
-# 	font pango:mono 18
-# 	status_command refreshp
-# 	position top
-# 	mode dock
-# 	modifier None
-# }
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -380,7 +379,7 @@ bindsym XF86Documents		exec $term -e $FILE ~/Documents
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
 
-#exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welcome to LARBS:' 'Press Super+F1 for the manual.' -t 10000
+exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welcome to LARBS:' 'Press Super+F1 for the manual.' -t 10000
 
 #selecting random wallpaper
 #exec --no-startup-id setbg $(find ~/StoreDisk/Quick/Pictures/All/Wallpapers/ -type f | shuf -n 1)

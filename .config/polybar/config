@@ -466,7 +466,8 @@ format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 label-disconnected = "%{A1:wifi:}  disconnected%{A}"
-label-disconnected-foreground = ${colors.color1}
+label-disconnected-foreground = ${colors.background}
+label-disconnected-background = ${colors.color1}
 label-disconnected-padding = 1
 
 ramp-signal-0 = 

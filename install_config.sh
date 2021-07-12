@@ -66,7 +66,7 @@ EOF
 
 
 install_aur_packages(){
-    yay -S lf xfsudo xst-git st-git polybar nerd-fonts-jetbrains-mono otf-font-awesome-5-free
+    yay -S lf xfsudo xst-git st-git polybar nerd-fonts-jetbrains-mono otf-font-awesome-5-free i3lock-fancy-git
     # yay -S ttf-material-design-icons
 }
 

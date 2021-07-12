@@ -238,7 +238,7 @@ format-padding = 1
 type = internal/date
 interval = 5
 
-time  = %I:%M %p %d/%m/%Y
+time  = %I:%M%P (%a)%d-%b-%Y
 format-foreground = ${colors.color0}
 format-background = ${colors.color4}
 label = "%{A1:applet_time:} %time%%{A}"

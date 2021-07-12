@@ -112,7 +112,6 @@ bindsym $mod+Shift+a		exec $term -e pulsemixer
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-bindsym $mod+d			exec --no-startup-id rofimenu
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
@@ -171,7 +170,6 @@ bindsym $mod+Prior		workspace prev
 bindsym $mod+Shift+Prior	move container to workspace prev
 bindsym $mod+Next		workspace next
 bindsym $mod+Shift+Next		move container to workspace next
-bindsym $mod+Tab		workspace back_and_forth
 bindsym $mod+XF86Back		workspace prev
 bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
@@ -291,7 +289,7 @@ bindsym $mod+Shift+bracketright exec --no-startup-id mpc seek +120
 # For screenshots and recording
 bindsym Print 			exec --no-startup-id maim Pictures/scrs/pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;; exec --no-startup-id notify-send "Taken!!"
 bindsym Shift+Print 		exec --no-startup-id maimpick
-bindsym $mod+Print		exec --no-startup-id deepin-screen-recorder
+bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
 bindsym XF86Launch1		exec --no-startup-id xset dpms force off
@@ -383,3 +381,7 @@ exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welco
 
 #selecting random wallpaper
 #exec --no-startup-id setbg $(find ~/StoreDisk/Quick/Pictures/All/Wallpapers/ -type f | shuf -n 1)
+
+# toggle and switch windows of a workspace in fullscreen
+bindsym $mod+Tab		workspace back_and_forth
+bindsym $mod+d			fullscreen disable, focus left, fullscreen enable

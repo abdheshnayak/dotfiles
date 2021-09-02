@@ -75,6 +75,7 @@ lfcd () {
 }
 
 bindkey -s '^o' 'lfcd\n'  # zsh
+bindkey -s '^p' 'code .\n'  # zsh
 
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
@@ -88,3 +89,13 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 
+export GITLAB_NPM_REGISTRY_READ_TOKEN=o2zaEuTBkM4ZsMmeTS1C
+
+
+# LF_ICONS=$(sed ~/.config/diricons \
+#             -e '/^[ \t]*#/d'       \
+#             -e '/^[ \t]*$/d'       \
+#             -e 's/[ \t]\+/=/g'     \
+#             -e 's/$/ /')
+# LF_ICONS=${LF_ICONS//$'\n'/:}
+# export LF_ICONS

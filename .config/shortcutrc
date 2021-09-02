@@ -24,3 +24,4 @@ cfk="$EDITOR ~/.config/sxhkd/sxhkdrc" \
 cfi="$EDITOR ~/.config/i3/config" \
 cfb="$EDITOR ~/.config/i3blocks/config" \
 bspcf="$EDITOR ~/.config/bspwm/bspwmrc" \
+co="code ."

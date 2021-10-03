@@ -13,9 +13,13 @@ exec --no-startup-id picom
 # terminal st theme and refresh polybar
 exec --no-startup-id $(xrdb merge ~/.Xresources) && refreshp
 # Setting background wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/wall/bg.jpg
+
+# ls ~/Pictures/wall | shuf -n 1
+
+exec --no-startup-id feh --bg-fill ~/Pictures/wall/$(ls ~/Pictures/wall | shuf -n 1)
+# exec --no-startup-id feh --bg-fill ~/Pictures/wall/bg.jpg
 # killing previous redshift instance and starting new redshift instance
-exec --no-startup-id $(pkill -TERM redshift && redshift-gtk)
+# exec --no-startup-id $(pkill -TERM redshift && redshift-gtk)
 
 
 # File originally by Luke Smith <https://lukesmith.xyz>
@@ -159,7 +163,9 @@ bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
 
-bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+# bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+m              move workspace to output left
+
 bindsym $mod+Shift+m		exec --no-startup-id amixer sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # #---Workspace Bindings---# #
@@ -385,4 +391,4 @@ exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welco
 
 # toggle and switch windows of a workspace in fullscreen
 bindsym $mod+Tab		workspace back_and_forth
-bindsym $mod+d			fullscreen disable, focus left, fullscreen enable
+bindsym $mod+d			fullscreen disable, focus right, fullscreen enable

@@ -23,7 +23,7 @@ color15 = ${xrdb:color15}
 
 
 [bar/black]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 ;height = 30
 background = ${colors.color0}
@@ -54,7 +54,7 @@ modules-left = xwindow
 modules-right = right-end-middle-two cpu  right-end-middle  mem  right-end-middle-twoo  wlan right-end-middlee powermenu 
 
 [bar/black-top]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 ;height = 30
 background = ${colors.background}

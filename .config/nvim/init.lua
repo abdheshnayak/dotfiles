@@ -1,0 +1,5 @@
+require("options")
+require("plugins")
+require("keymaps")
+require("lsp")
+vim.cmd([[ source $HOME/.config/nvim/coc.vim ]])

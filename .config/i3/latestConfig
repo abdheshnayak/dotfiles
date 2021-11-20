@@ -18,7 +18,16 @@ set $alt Mod1
 # is used in the bar {} block below.
 font pango:monospace 8
 
+# composite manager
+exec --no-startup-id picom
+
 exec --no-startup-id sudo fusuma -c ~/.config/fusuma/config.yml
+
+# terminal st theme and refresh polybar
+exec --no-startup-id $(xrdb merge ~/.Xresources) && refreshp
+
+# setting wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/wall/$(ls ~/Pictures/wall | shuf -n 1)
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -78,7 +87,7 @@ bindsym XF86AudioRaiseVolume	exec --no-startup-id amixer sset Master 5%+ && pkil
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec konsole -e tmux -2u
 
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
@@ -159,8 +168,6 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+a	exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 
-bindsym $mod+grave		exec --no-startup-id dmenuunicode
-
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -224,12 +231,11 @@ bindsym $mod+b			exec toggle_polybar
 bindsym $mod+t			split toggle
 
 
-
 # lock the screen
 bindsym $mod+x			exec --no-startup-id amixer sset Master mute; workspace 0 ; exec --no-startup-id i3lock-fancy -t $(whoami) ; exec --no-startup-id xset dpms force off
 
 
-exec --no-startup-id redshift -O 3000
+exec --no-startup-id redshift -o 3000
 
 # bindsym XF86MonBrightnessDown	exec --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 5
@@ -242,35 +248,3 @@ bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdow
 bindsym Print 			exec --no-startup-id maim Pictures/scrs/pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;; exec --no-startup-id notify-send "Taken!!"
 bindsym Shift+Print 		exec --no-startup-id maimpick
 bindsym $mod+Print		exec --no-startup-id dmenurecord
-
-
-for_window [title="NxtTerm"] fullscreen enable
-# for_window [title="NxtTerm"] resize set 1200 1000
-for_window [title="NxtTerm"] move scratchpad
-# for_window [title="NxtTerm"] border pixel 3
-
-# exec --no-startup-id xfce4-terminal --hide-menubar -T NxtTerm
-exec --no-startup-id konsole --hide-menubar -p tabtitle=NxtTerm 
-
-bindsym $alt + space	[title="NxtTerm"] scratchpad show; [title="NxtTerm"] move position center; [title="NxtTerm"] fullscreen enable
- 
-# bindsym $alt + shift + space exec --no-startup-id $term -T NxtTerm
-bindsym $alt + shift + space exec --no-startup-id  konsole --hide-menubar -p tabtitle=NxtTerm 
-
-for_window [title="ChromeTabs"] floating enable
-for_window [title="ChromeTabs"] resize set 1000 500
-for_window [title="ChromeTabs"] move scratchpad
-for_window [title="ChromeTabs"] border pixel 5
-
-# move workspace to another monitor
-bindsym $mod+m              move workspace to output left
-
-# #---Media Keys---# #
-# Volume keys
-bindsym $mod+plus		exec --no-startup-id amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+plus		exec --no-startup-id amixer sset Master 15%+ && pkill -RTMIN+10 i3blocks
-
-# bindsym $mod+Shift+plus		exec decr
-
-bindsym $mod+minus 		exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+minus	exec --no-startup-id amixer sset Master 15%- && pkill -RTMIN+10 i3blocks

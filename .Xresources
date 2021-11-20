@@ -1,10 +1,18 @@
-
 !-- Xft settings -- !
-#Xft.dpi:        115
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
+Xft.dpi: 100
+URxvt.font: xft:FiraMono-Regular:size=10
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! Xft.dpi:        96
+! Xft.antialias:  true
+! Xft.rgba:       rgb
+! Xft.hinting:    true
+! Xft.hintstyle:  hintfull
 
 !-- transparency ( any value under 255 ) --!
 st.opacity:        255
@@ -12,7 +20,7 @@ st.opacity:        255
 !-- inner border -- ! 
 st.borderpx:        15
 
-st.font:           JetBrainsMono Nerd Font Mono :pixelsize=22 , Material Design Icons :pixelsize =22
+st.font:           JetBrainsMono Nerd Font Mono :pixelsize=20 , Material Design Icons :pixelsize =20
 
 ! Base16 Gruvbox dark, hard
 ! Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)

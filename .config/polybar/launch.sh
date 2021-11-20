@@ -20,11 +20,11 @@ killall -q polybar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar --reload black &
-    MONITOR=$m polybar --reload black-top &
+    # MONITOR=$m polybar --reload black-top &
   done
 else
   polybar --reload black &
-  polybar --reload black-top &
+  # polybar --reload black-top &
 fi
 
 setmonitor.sh

@@ -1,0 +1,111 @@
+snippet kdapi	"kubernetes deployment yaml for api"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $1
+  namespace: $2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $1
+  template:
+    metadata:
+      labels:
+        app: $1
+    spec:
+      serviceAccount: hotspot-admin
+      serviceAccountName: hotspot-admin
+      containers:
+        - image: registry.madhouselabs.io/$3
+          imagePullPolicy: Always
+          name: $1
+          env:
+            - name: NODE_ENV
+              value: production
+
+            - name: CONFIG_FILE
+              value: /$4/config.yml
+
+            - name: SECRET_FILE
+              value: /$4/secret.yml
+
+            - name: GITLAB_INSTANCE_CALLBACK_URL
+              value: https://git.madhouselabs.io/users/auth/jwt/callback
+
+          resources:
+            requests:
+              cpu: 150m
+              memory: 200Mi
+            limits:
+              cpu: 300m
+              memory: 400Mi
+          livenessProbe:
+            httpGet:
+              path: /api/auth/healthy
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          volumeMounts:
+            - mountPath: /$4
+              name: $4
+
+      volumes:
+        - name: $4
+          projected:
+            sources:
+              - secret:
+                  name: auth-secret
+                  items:
+                    - key: value
+                      path: secret.yml
+              - configMap:
+                  name: auth-config
+                  items:
+                    - key: value
+                      path: config.yml
+endsnippet
+
+
+snippet kdweb	"kubernetes deployment yaml for web"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $1
+  namespace: $2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $1
+  template:
+    metadata:
+      labels:
+        app: $1
+    spec:
+      containers:
+        - image: registry.madhouselabs.io/$3
+          imagePullPolicy: Always
+          name: $1
+          env:
+            - name: NODE_ENV
+              value: production
+
+            - name: GITLAB_INSTANCE_CALLBACK_URL
+              value: https://git.madhouselabs.io/users/auth/jwt/callback
+
+          resources:
+            requests:
+              cpu: 150m
+              memory: 200Mi
+            limits:
+              cpu: 300m
+              memory: 400Mi
+          livenessProbe:
+            httpGet:
+              path: /api/auth/healthy
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+endsnippet
+

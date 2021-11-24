@@ -12,7 +12,7 @@
 
 # Your default LARBS WM is determined in your `~/.profile` on login.  Here we
 # run the proper command to run when the graphical environment starts.
-
+source ~/.local/bin/remaps
 exec i3
 
 # see https://unix.stackexchange.com/a/295652/332452

@@ -48,6 +48,7 @@ require("packer").startup(function()
 
   -- Motion
   use("bkad/CamelCaseMotion")
+  use("chaoren/vim-wordmotion")
   use("tpope/vim-surround")
   use("tpope/vim-commentary")
   use("mbbill/undotree")
@@ -230,7 +231,7 @@ vim.g.glow_border = "rounded"
 -- large files
 
 -- vim.g.LargeFile = 0.25
-vim.cmd [[
+vim.cmd([[
 
   " file is large from 10mb
 let g:LargeFile = 1024 * 1024 * 2 / 10
@@ -252,4 +253,4 @@ function! LargeFile()
  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction
 
-]]
+]])

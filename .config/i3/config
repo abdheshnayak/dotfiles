@@ -78,7 +78,7 @@ bindsym XF86AudioRaiseVolume	exec --no-startup-id amixer sset Master 5%+ && pkil
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec kitty
 
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
@@ -250,12 +250,12 @@ for_window [title="NxtTerm"] move scratchpad
 # for_window [title="NxtTerm"] border pixel 3
 
 # exec --no-startup-id xfce4-terminal --hide-menubar -T NxtTerm
-exec --no-startup-id konsole --hide-menubar -p tabtitle=NxtTerm 
+exec --no-startup-id kitty --title NxtTerm 
 
 bindsym $alt + space	[title="NxtTerm"] scratchpad show; [title="NxtTerm"] move position center; [title="NxtTerm"] fullscreen enable
  
 # bindsym $alt + shift + space exec --no-startup-id $term -T NxtTerm
-bindsym $alt + shift + space exec --no-startup-id  konsole --hide-menubar -p tabtitle=NxtTerm 
+bindsym $alt + shift + space exec --no-startup-id  kitty --title NxtTerm 
 
 for_window [title="ChromeTabs"] floating enable
 for_window [title="ChromeTabs"] resize set 1000 500

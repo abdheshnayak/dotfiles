@@ -124,7 +124,7 @@ nnoremap("sb", ":Telescope buffers<CR>")
 
 nnoremap("sn", ":bnext<CR>")
 
-nnoremap("f;", ":!eslint_d --fix % <CR>|:e!<CR>")
+nnoremap("f;", ":!eslint_d --fix '%' <CR>|:e!<CR>")
 
 -- Trouble nvim toggle
 nnoremap("st", ":TroubleToggle<CR>")
@@ -183,32 +183,21 @@ nnoremap("s.", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<
 
 vim.cmd([[ cabbrev http :DotHttp<CR> ]])
 
-cnoremap("qq", ":exit<CR>")
+-- cnoremap("qq", ":exit<CR>")
 
 nnoremap("<leader>dd", ":bwipeout<CR>")
 
 nnoremap("<M-CR>", ":lua require'telescope.builtin'.lsp_code_actions()<CR>")
 vnoremap("<M-CR>", ":lua require'telescope.builtin'.lsp_range_code_actions()<CR>")
 
--- CamelCase Motion (keymaps as suggested, by https://github.com/bkad/CamelCaseMotion)
-map('w', '<Plug>CamelCaseMotion_w', {})
-map('b', '<Plug>CamelCaseMotion_b', {})
-map('e', '<Plug>CamelCaseMotion_e', {})
-map('ge', '<Plug>CamelCaseMotion_ge', {})
-
-unmap('s','w')
-unmap('s','b')
-unmap('s','e')
-unmap('s','ge')
-
-omap('iw', '<Plug>CamelCaseMotion_iw', {})
-xmap('iw', '<Plug>CamelCaseMotion_iw', {})
-omap('ib', '<Plug>CamelCaseMotion_ib', {})
-xmap('ib', '<Plug>CamelCaseMotion_ib', {})
-omap('ie', '<Plug>CamelCaseMotion_ie', {})
-xmap('ie', '<Plug>CamelCaseMotion_ie', {})
-
--- term open
+vim.g.wordmotion_nomap = 1
+map('w', '<Plug>WordMotion_w', {})
+map('b', '<Plug>WordMotion_b', {})
+map('e', '<Plug>WordMotion_e', {})
+map('aw', '<Plug>WordMotion_aw', {})
+map('iw', '<Plug>WordMotion_iw', {})
+cmap('<C-R><C-W>', '<Plug>WordMotion_<C-R><C-W>', {})
+---- term open
 
 function termInBufferDir()
   local dir = vim.fn.expand('%:h')

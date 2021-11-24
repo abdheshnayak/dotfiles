@@ -15,6 +15,16 @@ export async function getServerSideProps(appCtx) {
 }
 endsnippet
 
+snippet gsp "next.js getStaticPaths"
+export async function getStaticPaths(appCtx) {
+	$0
+	return {
+		paths: [],
+		fallback: false,
+	};
+}
+endsnippet
+
 snippet imcodes "import http-status-codes"
 import {StatusCodes} from 'http-status-codes';
 endsnippet
@@ -47,4 +57,8 @@ snippet iife "iife() function"
 (async () => {
 	$0
 })();
+endsnippet
+
+snippet ignore "eslint ignore next line"
+// eslint-ignore-next-line
 endsnippet

@@ -102,59 +102,41 @@ lsp_config.bashls.setup({})
 lsp_config.dockerls.setup({})
 
 -- EFM
-local efm_config = vim.fn.stdpath("config") .. "/lua/lsp/sources/efm-config.yaml"
-local efm_log_dir = "/tmp"
-local efm_root_markers = { "package.json", ".git/" }
 
 local eslint = {
-  lintCommand = "eslint_d --stdin --stdin-filename ${INPUT} -f unix",
+  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
+  lintFormats = {"%f:%l:%c: %m"},
   lintIgnoreExitCode = true,
+  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+  formatStdin = true
 }
 
-local prettier = {
-  formatCommand = "prettier_d_slim --find-config-path --stdin-filepath ${INPUT}",
-  formatStdin = true,
-}
-
-local efm_languages = {
-  yaml = { prettier },
-  json = { prettier },
-  markdown = { prettier },
-  javascript = { eslint, prettier },
-  javascriptreact = { eslint, prettier },
-  typescript = { eslint, prettier },
-  typescriptreact = { eslint, prettier },
-  css = { prettier },
-  scss = { prettier },
-  sass = { prettier },
-  less = { prettier },
-  graphql = { prettier },
-  vue = { prettier },
-  html = { prettier },
-}
-
-local efm_cmd = vim.fn.stdpath('data') .. '/lsp_servers/efm/efm-langserver'
-
-require("lspconfig").efm.setup({
+lsp_config.efm.setup {
   cmd = {
-    efm_cmd,
-    "-c",
-    efm_config,
-    "-logfile",
-    efm_log_dir .. "/logfile.log",
+    vim.fn.stdpath('data') .. '/lsp_servers/efm/efm-langserver',
+  },
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = true
+  end,
+  root_dir = lsp_config.util.root_pattern(".eslintrc.yml"),
+  settings = {
+    languages = {
+      javascript = {eslint},
+      javascriptreact = {eslint},
+      ["javascript.jsx"] = {eslint},
+      typescript = {eslint},
+      ["typescript.tsx"] = {eslint},
+      typescriptreact = {eslint}
+    }
   },
   filetypes = {
     "javascript",
     "javascriptreact",
+    "javascript.jsx",
     "typescript",
-    "typescriptreact",
+    "typescript.tsx",
+    "typescriptreact"
   },
-  init_options = {
-    document_formatting = true,
-  },
-  settings = {
-    rootMarkers = efm_root_markers,
-    languages = efm_languages,
-  },
-})
+}
+

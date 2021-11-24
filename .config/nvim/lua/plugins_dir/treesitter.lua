@@ -1,21 +1,26 @@
 -- nvim-treesitter
 require("nvim-treesitter.configs").setup({
-  highlight = { enable = true, additional_vim_regex_highlighting = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      node_incremental = "<c-w>",
+      -- scope_incremental = "<c-w>",
+      node_decremental = "<C-S-W>",
     },
   },
-  indent = { enable = true },
+  indent = { enable = false },
   matchup = { enable = true },
   autotag = {
     enable = true,
   },
+  -- nvim autopairs
   autopairs = { enable = true },
+
   playground = {
     enable = true,
     disable = {},
@@ -55,7 +60,10 @@ require("nvim-treesitter.configs").setup({
   },
 
   refactor = {
-    smart_rename = { enable = true, keymaps = { smart_rename = "grr" } },
+    smart_rename = { 
+      enable = true, 
+      keymaps = { smart_rename = "grr" }
+    },
     highlight_definitions = { enable = true },
     navigation = {
       enable = true,
@@ -100,7 +108,7 @@ require("nvim-treesitter.configs").setup({
         ["[]"] = "@class.outer",
       },
     },
-    -- @TODOUA: these selectors may or may not helpful workflow
+    -- @TODO: these selectors may or may not helpful workflow
     select = {
       enable = true,
       lookahead = true,

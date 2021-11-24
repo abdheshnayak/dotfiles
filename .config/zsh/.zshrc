@@ -100,5 +100,6 @@ _fzf_complete_make() {
   _fzf_complete --multi --reverse --prompt="target> " -- "$@" < <(grep -iE '^[^.].*:\s+' ./Makefile | awk -F':' '{print $1}' | uniq)
 }
 
+export LANG=en_US.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

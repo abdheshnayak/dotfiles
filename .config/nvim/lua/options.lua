@@ -65,7 +65,7 @@ opt.copyindent = true
 opt.autoindent = true
 
 -- Completion, popup
-opt.completeopt = {'menu', 'menuone', 'noselect'}
+opt.completeopt = "menu,menuone,noinsert,noselect"
 
 -- Tab and Spaces
 opt.tabstop = 2
@@ -101,3 +101,7 @@ vim.g.matchup_matchparen_status_offscreen = 0
 vim.g.matchup_matchparen_pumvisible = 0
 vim.g.matchup_matchparen_nomode = 'ivV'
 vim.g.matchup_surround_enabled = 1
+
+-- vim.wo.foldmethod = 'expr'
+-- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+

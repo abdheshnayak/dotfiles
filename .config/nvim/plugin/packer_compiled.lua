@@ -534,6 +534,11 @@ _G.packer_plugins = {
     path = "/home/vision/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
   },
+  ["vim-wordmotion"] = {
+    loaded = true,
+    path = "/home/vision/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
+    url = "https://github.com/chaoren/vim-wordmotion"
+  },
   vimspector = {
     loaded = true,
     path = "/home/vision/.local/share/nvim/site/pack/packer/start/vimspector",

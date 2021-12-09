@@ -25,17 +25,17 @@ color15 = ${xrdb:color15}
 [bar/black]
 monitor = ${env:MONITOR:}
 width = 100%
-;height = 30
+height = 17
 background = ${colors.color0}
 foreground = ${colors.color7}
 bottom = false
-
+override-redirect = true
 
 
 line-size = 1
 
 
-font-0 = JetBrainsMono Nerd Font:style=Bold:size=15;2
+font-0 = JetBrainsMono Nerd Font:style=Bold:size=12;2
 ; font-1 = Font Awesome 5 Free:style=Solid:size=14;2
 ; font-2 = Font Awesome 5 Free:style=Regular:size=14;2
 ; font-3 = Font Awesome 5 Brands:style=Regular:size=14;2
@@ -47,9 +47,11 @@ wm-restack = i3 bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+# tray-position = right
+tray-reparent = false
+modules-center = xwindow
 
-
-modules-left = i3 
+modules-left = arch i3
 ; modules-center =xwindow 
 modules-right = network right-end-middle-two cpu right-end-middle mem right-end-middle-twoo pulseaudio right-end-middlee-two brightness right-end-middle battery right-end-middle-twoo wlan right-end-middlee date
 
@@ -357,7 +359,14 @@ content = "%{T3}%{T-}"
 inherit = module/decor
 content = "%{T}%{T}"
 
+[module/arch]
+inherit = module/decor
+content = "%{T3}  %{T-}"
 
+[module/space]
+inherit = module/decor
+content = "%{T} %{T}"
+content-background = ${colors.background}
 
 [module/right-end-middle]
 inherit = module/decor
@@ -379,7 +388,7 @@ content-background =  ${colors.color4}
 inherit = module/decor
 content = "%{T3}%{T-}"
 content-background =  ${colors.color4}
-content-foreground = $(color.foreground)
+content-foreground = ${colors.foreground}
 
 
 [module/right-end-middle-two]
@@ -456,7 +465,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected =  <label-connected>
-label-connected = "%{A1:wifi:}  %essid%%{A}"
+label-connected = "%{A1:wifi_applet:}  %essid%%{A}"
 label-connected-foreground = ${colors.background}
 label-connected-background = ${colors.color4}
 label-connected-padding = 1
@@ -465,7 +474,7 @@ label-connected-padding = 1
 format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
-label-disconnected = "%{A1:wifi:}  disconnected%{A}"
+label-disconnected = "%{A1:wifi_applet:}  disconnected%{A}"
 label-disconnected-foreground = ${colors.background}
 label-disconnected-background = ${colors.color1}
 label-disconnected-padding = 1

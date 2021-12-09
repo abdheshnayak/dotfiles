@@ -40,6 +40,46 @@ gaps inner 2
 gaps outer 2
 set $term --no-startup-id $TERMINAL
 
+# Bar Configuration
+
+set $transparent    #00000000
+
+set $bg "#2e4270"
+set $bg2 "#152a47"
+set $fg "#d5c4a1"
+set $fg2 "#abd0d9"
+set $bg3 "#c791ab"
+
+bar {
+	status_command i3blocks
+	i3bar_command i3bar -t
+	position top
+	mode hide
+	modifier $mod
+
+	font pango: Operator Mono Lig Book Bold 12
+
+	# setting from i3blocks
+	separator_symbol " " 
+
+	workspace_buttons yes	
+
+	binding_mode_indicator no
+
+	colors {
+		background $bg
+		# textcolor for the bar
+		statusline $fg
+
+		#	 ColorClass			Border			Background		   Foreground Text
+    focused_workspace   $transparent    $fg2        $bg2
+		inactive_workspace  $transparent    $bg					$fg
+		urgent_workspace    $transparent    $bg3				$transparent
+	}
+}
+
+
+
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
 for_window [instance="dropdown_*"] floating enable
@@ -208,7 +248,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" "$(sudo killall -9 fusuma) && $(i3-msg exit)"
+bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" && $(sudo killall -9 fusuma && i3-msg exit)
 
 bindsym $mod+Shift+w			exec $term -e nmtui
 bindsym $mod+w		exec --no-startup-id $BROWSER
@@ -218,8 +258,6 @@ bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
 
 
-# toggle polybaar visiblity
-bindsym $mod+b			exec toggle_polybar
 
 bindsym $mod+t			split toggle
 
@@ -274,3 +312,7 @@ bindsym $mod+Shift+plus		exec --no-startup-id amixer sset Master 15%+ && pkill -
 
 bindsym $mod+minus 		exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym $mod+Shift+minus	exec --no-startup-id amixer sset Master 15%- && pkill -RTMIN+10 i3blocks
+
+
+
+

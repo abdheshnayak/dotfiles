@@ -1,11 +1,28 @@
 #!/bin/sh
 
-# This script is called on startup to remap keys.
-# Increase key speed via a rate change
-xset r rate 300 50
-# Map the caps lock key to super...
-# setxkbmap -option caps:super
-# But when it is pressed only once, treat it as escape.
-killall xcape 2>/dev/null ; xcape -e 'Control_L=Escape'
-# Map the menu button to right super as well.
-xmodmap -e 'keycode 135 = Super_R'
+## This script is called on startup to remap keys.
+## Increase key speed via a rate change
+#xset r rate 300 50
+## Map the caps lock key to super...
+## setxkbmap -option caps:super
+## But when it is pressed only once, treat it as escape.
+#killall xcape 2>/dev/null ; xcape -e 'Control_L=Escape'
+## Map the menu button to right super as well.
+#xmodmap -e 'keycode 135 = Super_R'
+
+xset r rate 160 80
+
+setxkbmap -option ctrl:nocaps
+
+# left shift as space
+##xmodmap -e 'keycode 50 = space'
+
+# space key as Left Shift
+####xmodmap -e 'keycode 65 = Shift_L'
+
+pkill -9  xcape
+
+# make space toggle b/w space and Shift_L
+# xcape -e 'Shift_L=space'
+
+xcape -e 'Control_L=Escape'

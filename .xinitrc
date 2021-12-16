@@ -28,7 +28,7 @@ export SSH_AUTH_SOCK
 # exect startxfce4
 
 
-source ~/.xprofile
+source ~/.zprofile
 
 
 exec dbus-launch i3

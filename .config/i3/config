@@ -19,6 +19,19 @@ set $alt Mod1
 font pango:monospace 8
 
 exec --no-startup-id sudo fusuma -c ~/.config/fusuma/config.yml
+exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
+exec --no-startup-id dunst # dunst for notifications
+exec_always --no-startup-id remaps # set keyboard speed and remap keys
+exec --no-startup-id setbg # set random background image frm ~/Pictures/wall
+exec --no-startup-id picom --experimental-backend # picom for transparency and smoothness
+exec --no-startup-id unclutter # Remove mouse when idle
+exec --no-startup-id xrdb merge ~/.Xresources # themes settings
+
+# exec --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png "Welcome to LARBS" "Press super+F1 for the help menu." # LARBSWELCOME
+
+
+
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -44,9 +57,9 @@ set $term --no-startup-id $TERMINAL
 
 set $transparent    #00000000
 
-set $bg "#2e4270"
+set $bg "#1d2021"
 set $bg2 "#152a47"
-set $fg "#d5c4a1"
+set $fg "#8ec07c"
 set $fg2 "#abd0d9"
 set $bg3 "#c791ab"
 
@@ -57,7 +70,7 @@ bar {
 	mode hide
 	modifier $mod
 
-	font pango: Operator Mono Lig Book Bold 12
+	font pango: Operator Mono Lig Book Bold 14
 
 	# setting from i3blocks
 	separator_symbol " " 
@@ -267,7 +280,7 @@ bindsym $mod+t			split toggle
 bindsym $mod+x			exec --no-startup-id amixer sset Master mute; workspace 0 ; exec --no-startup-id i3lock-fancy -t $(whoami) ; exec --no-startup-id xset dpms force off
 
 
-exec --no-startup-id redshift -O 3000
+exec --no-startup-id redshift -O 2500
 
 # bindsym XF86MonBrightnessDown	exec --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 5
@@ -313,6 +326,4 @@ bindsym $mod+Shift+plus		exec --no-startup-id amixer sset Master 15%+ && pkill -
 bindsym $mod+minus 		exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym $mod+Shift+minus	exec --no-startup-id amixer sset Master 15%- && pkill -RTMIN+10 i3blocks
 
-
-
-
+bindsym $mod+o		exec --no-startup-id code

@@ -116,3 +116,4 @@ function xg {
 }
 
 source ~/workplace/plaxonic/.zsh/.zshrc 
+source ~/.zprofile

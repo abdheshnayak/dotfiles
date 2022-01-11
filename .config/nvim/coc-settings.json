@@ -1,0 +1,126 @@
+{
+  "codeLens.enable": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "deno.importMap": "./import_map.json",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "go",
+    "python",
+    "rufst",
+    "markdown",
+    "javascript",
+    "typescript",
+    "json",
+    "jsonc"
+  ],
+  "coc.source.around.firstMatch": false,
+  "coc.source.file.ignoreHidden": false,
+  "clangd.arguments": [
+    "--query-driver=/usr/bin/clang++",
+    "--background-index"
+  ],
+  "diagnostic.floatConfig": {
+    "border": true
+  },
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+
+  "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "pnpm",
+
+  "git.addGBlameToVirtualText": true,
+  "git.semanticCommit.scope": false,
+  "go.goplsOptions": {
+    "experimentalPostfixCompletions": true,
+    "semanticTokens": true,
+    "linksInHover": false,
+    "usePlaceholders": true,
+    "staticcheck": true
+  },
+  "hover.floatConfig": {
+    "border": true
+  },
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  "markdownlint.config": {
+    "default": true,
+    "line-length": false
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.blackdHTTPHeaders": {
+    "X-Fast-Or-Safe": "fast"
+  },
+  "python.linting.enabled": false,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.linting.pylintEnabled": true,
+  "signature.target": "echo",
+
+	"suggest.completionItemKindLabels": {
+		"text": "t",
+		"method": "m",
+		"function": ""
+	},
+
+	"suggest.enablePreview": true,
+	"diagnostic.virtualText": false,
+	"diagnostic.errorSign": "✘",
+	"diagnostic.warningSign": " ",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": " ",
+	"diagnostic.enable": true,
+	"diagnostic.level": "warning",
+	"diagnostic.refreshOnInsertMode": true,
+
+  "suggest.detailField": "abbr",
+  "suggest.floatConfig": {
+    "border": true
+  },
+  "signature.floatConfig": {
+    "border": true
+  },
+  "suggest.timeout": 5000,
+  "suggest.triggerCompletionWait": 30,
+  "suggest.defaultSortMethod": "none",
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "snippets.ultisnips.enable": false,
+  "snippets.ultisnips.usePythonx": false,
+  "snippets.extends": {
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
+  },
+
+  "typescript.validate.enable": true,
+	"javascript.validate.enable": true,
+
+	"typescript.suggestionActions.enabled": true,
+	"javascript.suggestionActions.enabled": true,
+	"javascript.suggest.autoImports": true,
+	"typescript.suggest.autoImports": true,
+
+
+  "typescript.format.semicolons": "ignore",
+  "typescript.autoClosingTags": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.preferences.useAliasesForRenames": false,
+}
+

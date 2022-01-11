@@ -1,0 +1,42 @@
+snippet jsconfig.json "create initial jsconfig.json"
+{
+  "compilerOptions": {
+    "target": "es6"",
+    "module": "es6",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+		"paths": {
+			"@commons/*": ["./commons/*"],
+		}
+  },
+  "typeAcquisition": {
+    "enable": true
+  },
+  "typingOptions": {
+    "enableAutoDiscovery": true
+  },
+  "allowJS": true,
+  "checkJS": true,
+  "include": [
+    // directly mention directory name or file name, NO regex or globs
+    "app",
+    "lib",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+}
+endsnippet
+
+snippet extend-jsconfig "extends jsconfig.json, useful for pathmaps"
+{
+	"extends": "",
+  "compilerOptions": {
+		"paths": {
+			"@commons/*": ["./commons/*"],
+		}
+  },
+}
+endsnippet

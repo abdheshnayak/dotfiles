@@ -1,0 +1,64 @@
+snippet page "next.js page"
+const ${1:Page} = () => {
+	return <div>This is $1</div>
+};
+
+export default $1;
+endsnippet
+
+snippet gssp "next.js getServerSideProps()" 
+export async function getServerSideProps(appCtx) { 
+	$0
+	return {
+		props: {}
+	}
+}
+endsnippet
+
+snippet gsp "next.js getStaticPaths"
+export async function getStaticPaths(appCtx) {
+	$0
+	return {
+		paths: [],
+		fallback: false,
+	};
+}
+endsnippet
+
+snippet imcodes "import http-status-codes"
+import {StatusCodes} from 'http-status-codes';
+endsnippet
+
+snippet imerror "import http-errors-lite"
+import createError from 'http-errors-lite';
+endsnippet
+
+snippet tryc "import try-catch"
+try{
+	$0
+} catch (err) {
+	throw createError(StatusCodes.BAD_REQUEST, "Bad Request");
+}
+endsnippet
+
+snippet imrou  "import useRouter : next.js "
+import {useRouter} from 'next/router';
+endsnippet
+
+snippet use-router "initialize router: next.js"
+const router = useRouter();
+endsnippet
+
+snippet state "useState() function"
+const [${1:data}, set${1}] = useState();
+endsnippet
+
+snippet iife "iife() function"
+(async () => {
+	$0
+})();
+endsnippet
+
+snippet ignore "eslint ignore next line"
+// eslint-ignore-next-line
+endsnippet

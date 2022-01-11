@@ -30,7 +30,6 @@ export SSH_AUTH_SOCK
 
 source ~/.zprofile
 
-
 exec dbus-launch i3
 
 

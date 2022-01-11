@@ -1,0 +1,23 @@
+#!/bin/bash
+CUR_DIR=$(pwd)
+
+while getopts p:n:s:d: option 
+do
+  case ${option} in
+    p) # podename
+      POD_NAME=${OPTARG};;
+    n) # namespace
+      NAMESPACE=${OPTARG};;
+    s) #source dir
+      SOURCE_DIR=${OPTARG};;
+    d)
+      DIST_DIR=${OPTARG};;
+    \?) # Invalid option
+      echo "Error: Invalid option: ${OPTARG}"
+      exit;;
+  esac
+done
+
+while inotifywait -r -e modify,create,delete,move $SOURCE_DIR; do
+  krsync -av --progress --delete --stats $(cat $CUR_DIR/.kignore | awk '{print "--exclude " $1 }' | xargs) $SOURCE_DIR $POD_NAME@$NAMESPACE:$DIST_DIR
+done

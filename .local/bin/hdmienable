@@ -1,0 +1,8 @@
+#!/bin/bash
+
+setmonitor.sh &&
+xrandr --output HDMI-1 --mode 1920x1080 --rate 60.00 --rotate normal &&
+#xrandr --output eDP-1 --mode 1920x1080 &&
+xrandr --output eDP-1 --off
+
+setbg

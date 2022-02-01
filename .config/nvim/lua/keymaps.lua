@@ -138,6 +138,7 @@ function _G.NxtFormatMap()
   -- print (lsp_root)
   if vim.bo.filetype == "javascript" or vim.bo.filetype == "javascriptreact" then
     maps["nnoremap"]("f;", ":!eslint_d --fix '%' <CR>|:e!<CR>")
+    -- maps["nnoremap"]("f;", ":EslintFixAll<CR>")
   elseif vim.bo.filetype == "go" then
     maps["nnoremap"]("f;", ":!gofmt -w '%'<CR>|:e!<CR>")
   end

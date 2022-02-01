@@ -41,6 +41,7 @@ require("packer").startup(function()
   use("mboughaba/i3config.vim")
   use("lukas-reineke/indent-blankline.nvim")
 
+
   -- golang
   use({
     "crispgm/nvim-go",

@@ -32,6 +32,10 @@ local lsp_servers = {
     base_dir .. "/dockerfile/node_modules/.bin/docker-langserver",
     '--stdio'
   },
+   eslint = {
+    base_dir .. "/vscode-eslint/node_modules/.bin/vscode-eslint-language-server",
+    "--stdio"
+  },
 }
 
 local function config(_config)
@@ -97,7 +101,8 @@ lsp_config.cssls.setup({
 lsp_config.tailwindcss.setup({
   cmd = lsp_servers.tailwindcss,
   filetypes = {"javascriptreact", "typescriptreact","javascript", "html", "css"},
-  root_dir = lsp_config.util.root_pattern('tailwind.config.js', vim.g.tailwind),
+  -- root_dir = lsp_config.util.root_pattern('tailwind.config.js', vim.g.tailwind),
+  root_dir = lsp_config.util.root_pattern('tailwind.config.js'),
   log_level = vim.lsp.protocol.MessageType.Warning;
   settings = {};
 })
@@ -143,40 +148,45 @@ lsp_config.dockerls.setup({
 
 -- EFM
 
-local eslint = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  lintIgnoreExitCode = true,
-  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true
-}
+-- local eslint = {
+--   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+--   lintStdin = true,
+--   lintFormats = {"%f:%l:%c: %m"},
+--   lintIgnoreExitCode = true,
+--   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+--   formatStdin = true
+-- }
 
-lsp_config.efm.setup {
-  cmd = {
-    vim.fn.stdpath('data') .. '/lsp_servers/efm/efm-langserver',
-  },
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = true
-  end,
-  root_dir = lsp_config.util.root_pattern(".eslintrc.yml", 'jsconfig.json', '.eslintrc.json','package.json'),
-  settings = {
-    languages = {
-      javascript = {eslint},
-      javascriptreact = {eslint},
-      ["javascript.jsx"] = {eslint},
-      typescript = {eslint},
-      ["typescript.tsx"] = {eslint},
-      typescriptreact = {eslint}
-    }
-  },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact"
-  },
-}
+-- lsp_config.efm.setup {
+--   cmd = {
+--     vim.fn.stdpath('data') .. '/lsp_servers/efm/efm-langserver',
+--   },
+--   on_attach = function(client)
+--     client.resolved_capabilities.document_formatting = true
+--   end,
+--   root_dir = lsp_config.util.root_pattern(".eslintrc.yml", 'jsconfig.json', '.eslintrc.json','package.json'),
+--   settings = {
+--     languages = {
+--       javascript = {eslint},
+--       javascriptreact = {eslint},
+--       ["javascript.jsx"] = {eslint},
+--       typescript = {eslint},
+--       ["typescript.tsx"] = {eslint},
+--       typescriptreact = {eslint}
+--     }
+--   },
+--   filetypes = {
+--     "javascript",
+--     "javascriptreact",
+--     "javascript.jsx",
+--     "typescript",
+--     "typescript.tsx",
+--     "typescriptreact"
+--   },
+-- }
+
+require("lspconfig").eslint.setup({
+  cmd = lsp_servers.eslint,
+  root_dir = lsp_config.util.root_pattern(".eslintrc.yml"),
+})
 

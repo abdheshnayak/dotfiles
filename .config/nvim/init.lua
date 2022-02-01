@@ -3,12 +3,12 @@
 if vim.g.vscode then
     -- require("vscode.main");
 else
+    require("plugins_dir")
     require('disable-builtins')
     require("options")
     require("plugins")
     require("impatient")
     require("keymaps")
-    require("plugins_dir")
     require("autocmds")
     require("lsp")
 

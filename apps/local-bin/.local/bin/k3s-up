@@ -1,0 +1,3 @@
+# !/bin/bash
+
+docker run --rm --privileged rancher/k3s agent --node-name vision --server https://172.105.37.251:6443 --token K10b2b5eac4aa6eb25c1ecc3d68aeba015567c6fda8512294b942a1d80dc5eb6707::server:20c871f6bc2a78a4dd3e036b80e5dca6

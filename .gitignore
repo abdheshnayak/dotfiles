@@ -1,3 +1,5 @@
 plugins
 */.git
 .zsh_history
+__pycache__
+.zcompdump

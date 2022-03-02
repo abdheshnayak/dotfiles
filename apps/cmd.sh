@@ -5,7 +5,7 @@ stowIt() {
 }
 
 stowItOverride() {
-  stow -t $HOME $1 --override
+  stow -t $HOME $1
 }
 
 unstowIt() {
@@ -29,17 +29,6 @@ case $command in
       fi
     done
     ;;
-  "install-all-override")
-    for dir in $(command ls -d */ | xargs -0)
-    do
-      if [ "$dir" = "node/" ]; then
-        [ -d $XDG_CONFIG_HOME/npm ] || cp -r node/npmrc $XDG_CONFIG_HOME/npm/npmrc
-      else
-        stowItOverride $dir
-      fi
-    done
-    ;;
-
   "uninstall")
     unstowIt $@
     ;;

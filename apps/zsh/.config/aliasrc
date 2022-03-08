@@ -48,4 +48,5 @@ alias \
 
 # Practice words
 alias \
-	speak="speak-ng"
+	speak="speak-ng" \
+	kl="kl dev" \

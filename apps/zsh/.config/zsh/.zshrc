@@ -115,7 +115,7 @@ function xg {
   DRI_PRIME=1 $@
 }
 
-source ~/workplace/plaxonic/.zsh/.zshrc 
+# source ~/workplace/plaxonic/.zsh/.zshrc 
 source ~/.zprofile
 
 eval "$(zoxide init zsh)"

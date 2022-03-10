@@ -89,6 +89,7 @@ rangercd () {
 
 
 bindkey -s '^[o' 'rangercd\n'  # zsh
+bindkey -s '^o' 'rangercd\n'  # zsh
 bindkey -s '^p' 'code .\n'  # zsh
 bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 
@@ -101,10 +102,11 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # fuzzy finder setup
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/zsh/fzf-keybindings.zsh ] && source ~/.config/zsh/fzf-keybindings.zsh
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/.local/share/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 3>/dev/null
 
 export GITLAB_NPM_REGISTRY_READ_TOKEN=o2zaEuTBkM4ZsMmeTS1C
 

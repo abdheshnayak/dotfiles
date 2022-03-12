@@ -2,10 +2,10 @@ vim.diagnostic.config({
     underline = {
       severity = 'Error'
     },
-    -- virtual_text = {
-    --   prefix = '☠ ',
-    --   severity = 'Error',
-    -- },
+    virtual_text = {
+      prefix = '☠ ',
+      severity = 'Error'
+    },
     virtual_text = false,
     signs = {
       severity = 'Error'

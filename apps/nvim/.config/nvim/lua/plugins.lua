@@ -345,6 +345,14 @@ require("packer").startup(function()
 	--   end,
 	-- })
 
+	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins_dir.trouble")
+		end
+  }
+
 	-- use({
 	--   "folke/trouble.nvim",
 	--   requires = "kyazdani42/nvim-web-devicons",

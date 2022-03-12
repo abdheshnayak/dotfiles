@@ -14,7 +14,7 @@ export BROWSER="google-chrome-stable"
 export READER="zathura"
 export FILE="ranger"
 export STATUSBAR="i3blocks"
-# export TERM=tmux-256color
+export TERM=tmux-256color
 
 # $HOME/ Clean-up:
 export LESSHISTFILE="-"

@@ -1,0 +1,14 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+    "err": {
+      "name": "pnpm",
+      "message": "No package.json (or package.yaml, or package.json5) was found in \"/Users/abdeshnayak/jeera-rice/apps/nvim/.config/nvim\".",
+      "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/Users/abdeshnayak/jeera-rice/apps/nvim/.config/nvim\".\n    at readProjectManifest (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:19818:13)\n    at async Object.readProjectManifestOnly (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:19822:28)\n    at async readProjectManifestOnly (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:43721:24)\n    at async Object.handler (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:177918:24)\n    at async /opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182194:21\n    at async run (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182168:34)\n    at async runPnpm (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182387:5)\n    at async /opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182379:7"
+    }
+  }
+}

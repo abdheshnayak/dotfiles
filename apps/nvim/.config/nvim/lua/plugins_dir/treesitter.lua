@@ -1,12 +1,11 @@
--- nvim-treesitter
 require("nvim-treesitter.configs").setup({
   ensure_installed = "maintained",
   -- ignore_install={"phpdoc","lua","php","vim", "ocamllex"},
-  ignore_install = { "ocamllex" },
+  ignore_install = { "ocamllex", "norg", "latex" },
 
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   incremental_selection = {
     enable = true,
@@ -21,6 +20,7 @@ require("nvim-treesitter.configs").setup({
   matchup = { enable = true },
   autotag = {
     enable = true,
+    enable_autocmd = true,
   },
   -- nvim autopairs
   autopairs = { enable = true },
@@ -69,7 +69,7 @@ require("nvim-treesitter.configs").setup({
   --     enable = true,
   --     keymaps = { smart_rename = "grr" },
   --   },
-  --   highlight_definitions = { enable = true },
+    -- highlight_definitions = { enable = true },
   --   -- navigation = {
   --   --   enable = true,
   --   --   keymaps = {
@@ -128,3 +128,5 @@ require("nvim-treesitter.configs").setup({
   --   },
   -- },
 })
+
+-- require 'nvim-treesitter.install'.compilers = { 'clang++'}

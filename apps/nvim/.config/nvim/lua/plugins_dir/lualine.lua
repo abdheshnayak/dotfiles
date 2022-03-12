@@ -33,8 +33,8 @@ local emoji = {
 
 lualine.setup({
   options = {
-    theme = "tokyonight",
-    -- theme = "kanagawa",
+    -- theme = "tokyonight",
+    theme = "kanagawa",
     -- theme = "iceberg_dark",
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
@@ -42,14 +42,14 @@ lualine.setup({
 
   sections = {
     lualine_a = {
-      { "mode", upper = true},
+      { "mode", upper = false},
     },
     lualine_b = {},
     lualine_c = {
       {
         "diagnostics",
         sources = { "nvim_diagnostic" },
-        symbols = { error = " ", warn = " ", info = " " },
+        symbols = { error = "  ", warn = "  ", info = "  " },
         color_error = colors.red,
         color_warn = colors.yellow,
         color_info = colors.cyan,
@@ -60,6 +60,7 @@ lualine.setup({
         file_status = true,
         symbols = { modified = "  ", readonly = " [-]" },
       },
+      'lsp_progress',
     },
     lualine_x = {
       {

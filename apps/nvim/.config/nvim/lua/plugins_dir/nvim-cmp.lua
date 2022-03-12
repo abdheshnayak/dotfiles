@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 
 local icons = {
-  Text = "   ",
+  Text = "📝",
   Method = "  ",
   Field = " λ ",
   Function = " ⨍ ",
@@ -30,7 +30,7 @@ local icons = {
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      require("snippy").expand_snippet(args.body)
     end,
   },
 
@@ -46,24 +46,26 @@ cmp.setup({
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
-  sources = {
-    -- 'crates' is lazy loaded
-    { name = "nvim_lsp" },
-    { name = "treesitter" },
-    { name = "ultisnips" },
-    { name = "path" },
+  sources = cmp.config.sources({
+    { name = "nvim_lsp", max_item_count=10 },
+    { name = "snippy", max_item_count=10 },
+    -- { name = "treesitter" },
+    { name = "path", max_item_count=10 },
     { name = "copilot" },
-    { name = "tmux" },
+    { name = "tmux", max_item_count=10 },
+  }, 
+  {
     {
       name = "buffer",
+      max_item_count=5,
       options = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
         end,
       },
     },
-    -- { name = "spell" },
-  },
+  }),
+
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = string.format('%s (%s)', icons[vim_item.kind], vim_item.kind) 

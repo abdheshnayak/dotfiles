@@ -1,4 +1,4 @@
-local actions = require("fzf-lua.actions")
+-- local actions = require("fzf-lua.actions")
 local maps = require("lib.mapping")
 -- print(vim.inspect(maps));
 
@@ -24,9 +24,6 @@ maps["nnoremap"]("k", "gk")
 maps["nnoremap"]("cc", '"+y')
 maps["vnoremap"]("cc", '"+y')
 
--- minimized maximized window
-maps["nnoremap"]("mm", ":Max<CR>")
-
 maps["vnoremap"]("scc", ":OSCYank<CR>")
 
 -- cancel highlighting
@@ -40,6 +37,7 @@ maps["nnoremap"]("<C-M-Down>", ":resize -10<CR>")
 
 -- comment/uncomment
 maps["nmap"]("s;", "gcc", {})
+-- maps["vmap"]("s;", "gc", {})
 maps["vmap"]("s;", "gcc", {})
 
 maps["tnoremap"]("<Esc>", "<C-\\><C-n>")
@@ -99,10 +97,16 @@ maps["inoremap"]("<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 maps["nnoremap"]("sb", ":Telescope buffers<CR>")
 maps["nnoremap"]("gd", ":Telescope lsp_definitions<CR>")
 maps["nnoremap"]("gr", ":Telescope lsp_references<CR>")
+maps["nnoremap"]("gi", ":Telescope lsp_implementations<CR>")
 maps["nnoremap"]("gdd", ":Telescope lsp_document_diagnostics<CR>")
 maps["nnoremap"]("gds", ":Telescope lsp_document_symbols<CR>")
 maps["nnoremap"]("gwd", ":Telescope lsp_workspace_diagnostics<CR>")
 maps["nnoremap"]("gws", ":Telescope lsp_workspace_symbols<CR>")
+
+
+
+-- tab minimize and maximize
+maps["nnoremap"]("mm", ":Max<CR>")
 
 -- lsp code actions
 maps["nnoremap"]("<M-CR>", ":Telescope lsp_code_actions<CR>")
@@ -111,12 +115,19 @@ maps["vnoremap"]("<M-CR>", ":Telescope lsp_code_actions<CR>")
 -- rnvimr (file explorer)
 maps["nnoremap"]("<M-o>", ":RnvimrToggle<CR>")
 maps["tnoremap"]("<M-o>", "<C-\\><C-n>:RnvimrToggle<CR>")
+
 -- because, rnvimr shits wqa
 maps["cnoremap"]("wqa", "wa! | qa")
 
+
+-- toggle terminal
+maps["nnoremap"]("st", ":ToggleTerm<CR>")
+
+
 -- for tabs
-maps["nnoremap"]("tn", ":tabnew <CR>")
-maps["nnoremap"]("te", ":tabedit % <CR>")
+print(vim.g.root_dir)
+maps["nnoremap"]("tn", ":tabnew | windo lcd ".. vim.g.root_dir .. '<CR>')
+maps["nnoremap"]("te", ":tabedit % |:windo cd g:root_dir <CR>")
 maps["nnoremap"]("tl", ":lua require('plugins_dir.telescope').tabs()<CR>")
 
 -- [Source]: https://gist.github.com/benfrain/97f2b91087121b2d4ba0dcc4202d252f

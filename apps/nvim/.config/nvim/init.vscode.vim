@@ -13,20 +13,23 @@ nnoremap cc "+y
 
 " vscode neovim docs
 
-xmap s;  <Plug>VSCodeCommentary
-nmap s;  <Plug>VSCodeCommentary
-omap s;  <Plug>VSCodeCommentary
-nmap s; <Plug>VSCodeCommentaryLine
+" xmap s;  <Plug>VSCodeCommentary
+" nmap s;  <Plug>VSCodeCommentary
+" omap s;  <Plug>VSCodeCommentary
+" nmap s; <Plug>VSCodeCommentaryLine
 
-nnoremap ss :call VSCodeNotify('workbench.action.files.save')<CR>
-nnoremap <silent> si :call VSCodeNotify('workbench.action.splitEditorRight')<CR>
-nnoremap <silent> sm :call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+nnoremap s; :action CommentByLineComment<CR>
 
-nnoremap <silent> sh :call VSCodeNotify('workbench.action.navigateLeft')<CR>
-nnoremap <silent> sl :call VSCodeNotify('workbench.action.navigateRight')<CR>
-nnoremap <silent> sj :call VSCodeNotify('workbench.action.navigateDown')<CR>
-nnoremap <silent> sk :call VSCodeNotify('workbench.action.navigateUp')<CR>
+nnoremap ss :action Save<CR>
+nnoremap <silent> si :action SplitVertically<CR>
+nnoremap <silent> sm :action SplitHorizontally<CR>
 
+nnoremap <silent> sh  <c-w>h
+nnoremap <silent> sl  <c-w>l
+nnoremap <silent> sj  <c-w>j
+nnoremap <silent> sk  <c-w>k
+
+" close tab
 nnoremap <silent> sx :call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <silent> za :call VSCodeNotify('editor.toggleFold')<CR>
 

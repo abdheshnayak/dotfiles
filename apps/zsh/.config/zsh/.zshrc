@@ -89,6 +89,7 @@ rangercd () {
 
 
 bindkey -s '^[o' 'rangercd\n'  # zsh
+bindkey -s 'ø' 'rangercd\n'  # zsh
 bindkey -s '^o' 'rangercd\n'  # zsh
 bindkey -s '^p' 'code .\n'  # zsh
 bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'

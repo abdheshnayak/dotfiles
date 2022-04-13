@@ -25,6 +25,10 @@ require("packer").startup(function()
 	-- 	end
 	-- }
 
+	-- use("beeender/Comrade")
+	use("fatih/vim-go")
+	-- use("ray-x/go.nvim")
+
 	use("lewis6991/impatient.nvim")
 
 	use({

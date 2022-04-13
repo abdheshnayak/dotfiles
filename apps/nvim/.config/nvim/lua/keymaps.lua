@@ -44,6 +44,7 @@ maps["tnoremap"]("<Esc>", "<C-\\><C-n>")
 
 -- saving file
 maps["nnoremap"]("ss", ":w<CR>")
+-- maps["nnoremap"]("sdi", ":GoImports<CR>")
 
 -- split navigation
 maps["nnoremap"]("sh", "<C-w>h<CR>")

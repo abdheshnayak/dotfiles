@@ -25,12 +25,10 @@ export async function getStaticPaths(appCtx) {
 }
 endsnippet
 
-snippet imcodes "import http-status-codes"
-import {StatusCodes} from 'http-status-codes';
-endsnippet
-
-snippet imerror "import http-errors-lite"
-import createError from 'http-errors-lite';
+snippet use-eff "useEffect() hook"
+useEffect(() => {
+	$0
+}, []);
 endsnippet
 
 snippet tryc "import try-catch"

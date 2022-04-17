@@ -1,0 +1,35 @@
+snippet jsconfig.json
+	{
+		"compilerOptions": {
+			"target": "es6",
+			"module": "es6",
+			"moduleResolution": "node",
+			"jsx": "react-jsx",
+			"esModuleInterop": true,
+			"paths": {
+				"@commons/*": ["./commons/*"],
+			}
+		},
+		"typeAcquisition": {
+			"enable": true
+		},
+		"typingOptions": {
+			"enableAutoDiscovery": true
+		},
+		"allowJS": true,
+		"checkJS": true,
+		"exclude": [
+			"node_modules"
+		],
+	}
+
+snippet extend-jsconfig.json
+	{
+		"extends": "",
+		"compilerOptions": {
+			"paths": {
+				"@commons/*": ["./commons/*"],
+			}
+		},
+		"include": [],
+	}

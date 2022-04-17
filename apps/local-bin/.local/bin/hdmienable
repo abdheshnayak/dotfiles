@@ -2,7 +2,10 @@
 
 setmonitor.sh &&
 xrandr --output HDMI-1 --mode 1920x1080 --rate 59.94 --rotate normal &&
+# xrandr --output HDMI-1 --mode 3840x2160 --rate 30.00 --rotate normal &&
 #xrandr --output eDP-1 --mode 1920x1080 &&
 xrandr --output eDP-1 --off
+
+xrdb merge ~/.local/bin/hdmi/.XresoureceMonitor
 
 setbg

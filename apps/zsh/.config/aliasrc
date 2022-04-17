@@ -16,6 +16,8 @@ alias \
 
 # Colorize commands when possible.
 alias \
+	cd=z \
+	cdi=zi \
 	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
@@ -37,6 +39,9 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query"
 
+alias \
+	task=go-task
+
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 
@@ -49,4 +54,5 @@ alias \
 # Practice words
 alias \
 	speak="speak-ng" \
-	kl="kl dev" \
+	godev="nodemon -w **/* -e go --signal SIGKILL -q --exec 'echo && go run main.go || exit 1'" \
+

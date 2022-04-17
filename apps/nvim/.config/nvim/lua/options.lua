@@ -3,7 +3,6 @@ local opt = vim.opt
 -- cause i always use a dark variant theme
 opt.background = "dark"
 
--- highlight current line
 -- opt.cursorline = true
 
 -- silently move between windows
@@ -30,6 +29,12 @@ opt.undofile = true
 -- rules while swithching to a buffer
 opt.switchbuf = "useopen,usetab,newtab"
 
+-- global statusline
+opt.laststatus = 3
+
+-- stop resizing on closing splits
+-- opt.equalalways = false
+
 -- Fast Scrolling
 opt.ttimeoutlen = 10
 opt.timeoutlen = 500
@@ -53,11 +58,13 @@ opt.termguicolors = true
 -- wild menu
 opt.wildmenu = true
 opt.wildmode = "full"
-opt.wildignore = "*/node_modules/*,*/.git/*,.next"
+
+opt.wildignore:append("node_modules", ".git", ".next", "build", "dist")
 
 -- Completion PopUp Transparency
 opt.wildoptions = "pum"
 opt.pumblend = 9
+opt.pumheight = 20
 
 -- Copy Previous Indentation
 opt.smartindent = true
@@ -70,7 +77,7 @@ opt.completeopt = "menu,menuone,noinsert,noselect"
 -- Tab and Spaces
 opt.tabstop = 2
 opt.softtabstop = 2
-opt.shiftwidth = 2   -- spaces per tab when using >> or <<
+opt.shiftwidth = 2 -- spaces per tab when using >> or <<
 opt.expandtab = true -- expand tabs into spaces
 opt.autoindent = true
 opt.smarttab = true
@@ -89,18 +96,11 @@ opt.swapfile = false
 opt.inccommand = "split" -- shows live incremental status of substitution in split buffer
 
 -- gui
-opt.guifont="Operator Mono Lig Medium:h13.5"
+opt.guifont = "Operator Mono Lig Medium:h13.5"
 opt.linespace = 4
-opt.guifontwide="FiraCode Nerd Font Medium:h13"
+opt.guifontwide = "FiraCode Nerd Font Medium:h13"
 
 opt.mouse = "a"
-
-vim.cmd([[
-augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=500, on_visual=true}
-augroup end
-]])
 
 -- don't auto commenting new lines
 vim.cmd([[au! BufEnter * set fo-=c fo-=r fo-=o]])
@@ -110,29 +110,27 @@ vim.g.matchup_matchparen_pumvisible = 0
 vim.g.matchup_matchparen_nomode = "ivV"
 vim.g.matchup_surround_enabled = 1
 
-function _G.custom_fold_text()
-  local line = vim.fn.getline(vim.v.foldstart)
-  local line_count = vim.v.foldend - vim.v.foldstart + 1
+-- opt.foldcolumn = "1"
+-- opt.foldmethod = "marker"
+opt.foldmethod = "manual"
+opt.foldmarker = "👉,👈"
 
-  -- local start_char = " ⚡ "
-  -- local start_char = " 🪅 "
-  local start_char = " 😎 "
-  local fill_char = " +--+ "
+function _G.custom_fold_text() -- 👉
+	local line = vim.fn.getline(vim.v.foldstart)
+	local nextLine = vim.fn.getline(vim.v.foldstart + 1)
+	local line_count = vim.v.foldend - vim.v.foldstart + 1
 
-  local other_offsets = 12
-  local right_padding = 10
-  local first_stop = vim.fn.winwidth(0) - #line - other_offsets - right_padding - #start_char - #line / 3
-  return start_char
-    .. line
-    .. (" "):rep(#line / 3)
-    .. fill_char:rep(first_stop / #fill_char)
-    .. string.format("[ %2s lines ]", line_count)
-    .. (" "):rep(right_padding)
-end
+	local start_char = " ✂️ "
+	local fill_char = " • "
 
-vim.opt.foldtext = "v:lua.custom_fold_text()"
+	local showLine = line
+	if #line < 25 then
+		showLine = showLine .. nextLine:sub(1, math.min(20, #nextLine))
+	end
 
--- vim.cmd[[
---   let &t_Cs = "\e[4:3m"
---   let &t_Ce = "\e[4:0m"
--- ]]
+	local ds = start_char .. string.format("[%3s lines] | ", line_count) .. showLine .. " "
+
+	return ds .. fill_char:rep(math.max(vim.fn.winwidth(0) - #ds - (#fill_char - 1) - 3, 0))
+end -- 👈
+
+opt.foldtext = "v:lua.custom_fold_text()"

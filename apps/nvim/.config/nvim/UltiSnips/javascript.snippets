@@ -1,16 +1,16 @@
-snippet imrou
+snippet exp-imrou "express import router"
 import {Router} from 'express';
 const router = Router();
 endsnippet
 
-snippet rou
+snippet exp-rou "express create route"
 router.${1:get}('${2:/}', httpHandler(async (req, res) => {
 	$0
 	res.json({ msg: 'hello' });
 }));
 endsnippet
 
-snippet tryc
+snippet tryc "try catch block"
 try{
 	$0
 } catch (err) {
@@ -20,41 +20,14 @@ endsnippet
 
 # NodeJs specific imports
 
-snippet imcodes
-import {StatusCodes} from 'http-status-codes';
-endsnippet
-
-snippet imerror
-import createError from 'http-errors-lite';
-endsnippet
-
-snippet immongoose
-import mongoose, {Schema} from 'mongoose';
-endsnippet
-
 snippet iife  "IIFE"
 (async () => {
 	$0
 })();
 endsnippet
 
-snippet imhhandler "http handler"
-import {httpHandler} from '@madhouselabs/http-helpers';
-$0
-endsnippet
 
-
-snippet imuse-eff "import useEffect"
-import {useEffect} from 'react';
-endsnippet
-
-snippet use-eff "useEffect() hook"
-useEffect(() => {
-	$0
-}, []);
-endsnippet
-
-snippet esm__dirname "commonjs __dirname for ESM"
+snippet dirname "ESM __dirname"
 import path from 'path';
 import {fileURLToPath} from 'url';
 

@@ -1,0 +1,44 @@
+# graphql resolver
+snippet resolver
+	async (_, {${1:args}}, ctx) => {
+		return ${2};
+	}
+
+
+snippet eslint-disable-no-console
+	// eslint-disable-next-line no-console
+
+
+snippet exec-promise
+	const execPromise = async (cmd) => {
+		return new Promise((resolve, reject) => {
+		   exec(cmd, (err, stdout, stderr) => {
+		   if (err) {
+		     console.log("error: ", err)
+		     return reject(stderr);
+		   }
+		   return resolve(stdout)
+		   })
+		});
+	}
+
+snippet tryc
+	try {
+	  ${1}
+	} catch(err) {
+	  throw createHttpError(StatusCodes.BAD_REQUEST,  \`failed because ${err.message}\`)
+	}
+
+snippet iife
+	(async () => {
+	  ${1}
+	})()
+
+snippet template_cli
+	const program = new Command();
+
+	program.command('${1:command}').description('${2:description}').option('-d, --debug', 'debug mode').action(async (opts) => {
+	${3}
+	});
+
+	program.parse()

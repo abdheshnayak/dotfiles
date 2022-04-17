@@ -1,4 +1,4 @@
 vim.g.copilot_filetypes = {
-  ["markdown"] = true,
-  ["yaml"] = true,
+	["markdown"] = true,
+	["yaml"] = true,
 }

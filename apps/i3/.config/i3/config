@@ -127,7 +127,7 @@ bindsym XF86AudioRaiseVolume	exec --no-startup-id amixer sset Master 5%+ && pkil
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec DRI_PRIME=1 kitty
 
 # start a terminal in the current workspace
 bindsym $mod+Shift+Return exec kitty --directory $(xcwd)
@@ -261,6 +261,8 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" && $(sudo killall -9 fusuma && i3-msg exit)
 
+# bindsym $mod+Escape	exec --no-startup-id prompt "Hibernate System?" && $(systemctl hibernate)
+
 bindsym $mod+Shift+w			exec $term -e nmtui
 bindsym $mod+w		exec --no-startup-id $BROWSER
 
@@ -275,8 +277,7 @@ bindsym $mod+t			split toggle
 
 
 # lock the screen
-bindsym $mod+x			exec --no-startup-id amixer sset Master mute; workspace 0 ; exec --no-startup-id i3lock-fancy -t $(whoami) 
-# ; exec --no-startup-id xset dpms force off
+bindsym $mod+x			exec --no-startup-id amixer sset Master mute; workspace 0 ; exec --no-startup-id i3lock-fancy -t $(whoami); exec --no-startup-id systemctl suspend
 
 
 

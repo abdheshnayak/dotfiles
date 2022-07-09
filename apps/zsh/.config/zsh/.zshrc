@@ -95,10 +95,10 @@ bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # powerlevel10k enable
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # fuzzy finder setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -118,4 +118,15 @@ function xg {
 # source ~/workplace/plaxonic/.zsh/.zshrc 
 source ~/.zprofile
 
+eval "$(starship init zsh)"
+
 eval "$(zoxide init zsh)"
+
+
+# bun completions
+[ -s "/home/vision/.bun/_bun" ] && source "/home/vision/.bun/_bun"
+
+
+export BUN_INSTALL="/home/vision/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+

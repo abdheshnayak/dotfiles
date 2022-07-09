@@ -26,9 +26,24 @@ end
 local M = {}
 
 M.run = function()
-	d = vim.lsp.diagnostic.get()
+	d = vim.lsp.diagnostic.get_all()
+	local bufnr = vim.api.nvim_get_current_buf()
 	l = {}
+	curr_diagnostics = d[bufnr]
+
+	for _, w in ipairs(curr_diagnostics) do
+		msg = w.message
+		match = string.match(msg, 'does not implement')
+		if match == nil then
+		else
+			op = string.gsub(msg, '(.*(does not implement ))', '')
+			op = string.gsub(op, '(( .missing method ).*)', '')
+			table.insert(l, op)
+		end
+	end
+
 	for _, v in ipairs(d) do
+		-- print("d", vim.inspect(v))
 		for _, w in ipairs(v) do
 			-- print(vim.inspect(w))
 			msg = w.message
@@ -38,15 +53,11 @@ M.run = function()
 			else
 				op = string.gsub(msg, '(.*(does not implement ))', '')
 				op = string.gsub(op, '(( .missing method ).*)', '')
-				-- l.insert(op)
 				table.insert(l, op)
-				-- print(op)
 			end
-
-
-			-- print(w.message)
 		end
 	end
+
 	-- print(l)
 	-- print(vim.inspect(d))
 	my_custom_picker(l)

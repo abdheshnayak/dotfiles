@@ -22,3 +22,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.opt.laststatus = 3
 	end,
 })
+
+-- oneditor open
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 			require("plugins_dir.tabname").run()
+-- 	end,
+-- })

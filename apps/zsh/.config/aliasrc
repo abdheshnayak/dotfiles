@@ -28,6 +28,8 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
+	gst="git status" \
+	k="kubectl" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
@@ -54,5 +56,7 @@ alias \
 # Practice words
 alias \
 	speak="speak-ng" \
-	godev="nodemon -w **/* -e go --signal SIGKILL -q --exec 'echo && go run main.go || exit 1'" \
+	wg-quick="sudo wg-quick" \
+	wg="sudo wg" \
+	godev="nodemon -e 'go' --exec 'echo && go run main.go || exit 1' | grep -v nodemon" \
 

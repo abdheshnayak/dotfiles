@@ -90,7 +90,7 @@ maps["nnoremap"]("si", ":vsplit<CR>")
 maps["nnoremap"]("sm", ":split<CR>")
 
 -- vim test
--- maps["nnoremap"]("st", ":lua require'lsp.goimpl'.run()<CR>")
+maps["nnoremap"]("sg", ":lua require'lsp.goimpl'.run()<CR>")
 
 -- file explorer | word grepper
 maps["nnoremap"]("sf", ":Telescope find_files<CR>")

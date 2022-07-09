@@ -20,7 +20,7 @@ st.opacity:        255
 !-- inner border -- ! 
 st.borderpx:        15
 
-st.font:           JetBrainsMono Nerd Font Mono :pixelsize=20 , Material Design Icons :pixelsize =20
+st.font:           JetBrainsMono Nerd Font Mono :pixelsize=20 , Material Design Icons :pixelsize =14
 
 ! Base16 Gruvbox dark, hard
 ! Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)

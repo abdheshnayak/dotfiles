@@ -10,7 +10,7 @@
 ## Map the menu button to right super as well.
 #xmodmap -e 'keycode 135 = Super_R'
 
-xset r rate 200 100
+xset r rate 180 200
 
 setxkbmap -option ctrl:nocaps
 

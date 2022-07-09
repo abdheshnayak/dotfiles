@@ -30,5 +30,11 @@ export SSH_AUTH_SOCK
 
 source ~/.zprofile
 
-exec dbus-launch i3
+xset s 300 300
+xset dpms 300 300 600
+
+# exec dbus-launch i3
+[[ $wm == "a" ]] && exec awesome
+
+[[ $wm != "a" ]] && exec dbus-launch i3
 

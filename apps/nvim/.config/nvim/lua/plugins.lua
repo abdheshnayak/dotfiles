@@ -174,6 +174,7 @@ local function withCodingSetup()
 	-- use({ "github/copilot.vim", event = events.OnInsert, opt = true }) -- copilot is bottleneck, for poor startup, and lags telescope
 	use({ "github/copilot.vim" }) -- copilot is bottleneck, for poor startup, and lags telescope
 
+
 	-- use({
 	-- 	"zbirenbaum/copilot.lua",
 	-- 	event = { "VimEnter" },
@@ -229,12 +230,12 @@ local function withCodingSetup()
 	use({ "caenrique/nvim-toggle-terminal", event = events.BufReadPost })
 
 	-- maximizer toggle
-	use({"szw/vim-maximizer"})
+	use({ "szw/vim-maximizer" })
 
 	-- AutoCompletion
 	use({
 		"hrsh7th/nvim-cmp",
-		commit="f573479528cac39ff5917a4679529e4435b71ffe",
+		commit = "f573479528cac39ff5917a4679529e4435b71ffe",
 		requires = {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
@@ -268,13 +269,23 @@ local function withCodingSetup()
 	use({ "andrewstuart/vim-kubernetes", ft = "yaml", event = events.BufReadPost })
 
 	-- auto session with tabby names
-	-- use({
-	-- 	"jedrzejboczar/possession.nvim",
-	-- 	config = function()
-	-- 		vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-	-- 		require("possession").setup({})
-	-- 	end,
-	-- })
+	use({
+		"jedrzejboczar/possession.nvim",
+		config = function()
+			vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+			require("possession").setup({})
+		end,
+	})
+
+	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons', -- optional, for file icon
+		},
+		config = function()
+			require 'nvim-tree'.setup({})
+		end
+	}
 
 	-- auto session
 	use({

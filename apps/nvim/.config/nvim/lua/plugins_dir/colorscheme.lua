@@ -4,9 +4,9 @@ function tokyoNight()
 	vim.g.tokyonight_transparent = true
 	vim.g.tokyonight_italic_variables = true
 
-	-- vim.g.tokyonight_colors = {
-	-- 	comment = "#61768c",
-	-- }
+	vim.g.tokyonight_colors = {
+		comment = "#61768c",
+	}
 	vim.cmd("colorscheme tokyonight")
 end
 
@@ -15,6 +15,7 @@ function kanagawa()
 
 	local colors = {
 		nxtSelection1 = "#273e5e",
+
 	}
 
 	local overrides = {

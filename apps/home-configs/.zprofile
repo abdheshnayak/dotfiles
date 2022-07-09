@@ -7,7 +7,9 @@
 
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
+
 # Default programs:
+# e
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="google-chrome-stable"
@@ -22,6 +24,7 @@ export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/inputrc"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZOOM_CONFIG_DIR="$HOME/.config/zoom"
+export KUBECONFIG="$HOME/.kube/config"
 
 # export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 

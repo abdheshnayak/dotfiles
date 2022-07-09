@@ -2,7 +2,7 @@
 set mouse=a
 
 " Set Editor Font
-if exists(':GuiFont')
+if exists(':g:glrnvim_gui')
     " Use GuiFont! to ignore font errors
     GuiFont! Operator Mono Lig Book:h14
 endif

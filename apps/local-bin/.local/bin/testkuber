@@ -1,0 +1,1 @@
+export KUBECONFIG=$HOME/.testkuber/okteto-kube.config:${KUBECONFIG:-$HOME/.kube/config}

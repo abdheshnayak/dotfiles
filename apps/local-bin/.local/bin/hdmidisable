@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# xrandr --output HDMI-1 --mode 2560x1440 &&
+xrandr --output eDP-1 --mode 1920x1200  &&
+xrandr --output HDMI-1-1 --off
+
+xrdb merge ~/.local/bin/hdmi/.XresoureceLaptop
+
+setbg

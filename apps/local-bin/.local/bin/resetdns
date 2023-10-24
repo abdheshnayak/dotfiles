@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo cp /etc/resolv.confw /etc/resolv.conf

@@ -1,0 +1,5 @@
+xrandr --output eDP-1 --mode 1920x1080
+setbg ~/.config/wall.png
+
+#xrandr --output eDP-1 --mode 1680x1050
+setbg ~/.config/wall.png

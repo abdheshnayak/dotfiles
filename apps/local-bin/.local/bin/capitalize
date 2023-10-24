@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#!/bin/sh
+while read -r FILENAME ; do
+  if [[ $FILENAME == *.jsx ]]; then
+    mv $FILENAME ${FILENAME^}
+  fi
+done

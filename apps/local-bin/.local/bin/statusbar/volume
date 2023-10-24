@@ -1,0 +1,10 @@
+#!/bin/sh
+volstat="$(amixer get Master)"
+
+echo "$volstat" | grep "\[off\]" >/dev/null && printf "" && exit
+
+vol=$(echo "$volstat" | grep -o "\[[0-9]\+%\]" | sed 's/[^0-9]*//g')
+
+echo tr -d '\n' $vol
+
+printf "$vol $icon"

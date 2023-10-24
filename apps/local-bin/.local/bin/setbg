@@ -1,0 +1,3 @@
+#!/bin/sh
+
+feh --bg-fill ~/Pictures/wall/$(ls ~/Pictures/wall | shuf -n 1)

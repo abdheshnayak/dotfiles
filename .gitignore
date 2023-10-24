@@ -1,0 +1,5 @@
+*/.git
+.zsh_history
+__pycache__
+.zcompdump
+.luarc.json

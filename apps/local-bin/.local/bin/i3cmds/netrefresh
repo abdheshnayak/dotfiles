@@ -1,0 +1,1 @@
+sudo -A systemctl restart NetworkManager

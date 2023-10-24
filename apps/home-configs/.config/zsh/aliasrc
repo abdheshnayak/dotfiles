@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	bat="cat /sys/class/power_supply/BAT?/capacity" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -v" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# Colorize commands when possible.
+alias \
+	cd=z \
+	cdi=zi \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+  
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	cl="clear" \
+	ka="killall" \
+	g="git" \
+	gst="git status" \
+	k="kubectl" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query"
+
+alias \
+	radeontop="radeontop -c" \
+
+# This alias is important. It enables the `pauseallmpv` command.
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
+
+# Some other stuff
+alias \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	weath="less -S ~/.local/share/weatherreport" \
+
+# Practice words
+alias \
+	speak="speak-ng" \
+	wg-quick="sudo wg-quick" \
+	wg="sudo wg" \
+	tf="terraform" \
+	godev="nodemon -e 'go' --exec 'echo && go run main.go || exit 1' | grep -v nodemon" \
+	google-chrome-stable="DRI_PRIME=1 google-chrome-stable"
+
+
+alias \
+	lock="i3lock-fancy" 

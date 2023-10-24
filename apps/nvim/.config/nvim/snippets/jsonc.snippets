@@ -1,0 +1,26 @@
+snippet jsconfig
+  {
+    "compilerOptions": {
+      "target": "es6"",
+      "module": "es6",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "noImplicitAny": false,
+    },
+    "typeAcquisition": {
+      "enable": true
+    },
+    "typingOptions": {
+      "enableAutoDiscovery": true
+    },
+    "allowJS": true,
+    "checkJS": true,
+    "include": [
+      // directly mention directory name or file name, NO regex or globs
+      "src",
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+  }

@@ -1,0 +1,24 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[1]
+Description=Window settings for kitty
+clientmachine=localhost
+noborder=true
+noborderrule=3
+types=1
+wmclass=kitty
+wmclassmatch=1
+
+[2732f141-5bde-401e-b549-41e9d362d3ba]
+Description=Window settings for kitty
+clientmachine=localhost
+noborder=true
+noborderrule=3
+types=1
+wmclass=kitty
+wmclassmatch=1
+
+[General]
+count=1
+rules=1

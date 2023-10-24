@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DIR=~/.local/bin
+
+FILE=$(ls $DIR | dmenu -l 30 -fn 'mono-14' )
+[[ $FILE != "" ]] && st -e nvim $DIR/$FILE

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+a=$(echo "$XDG_SESSION_DESKTOP" | tr -d " \n")
+
+xset r rate 200 100
+if [ "$a" != "GNOME" ]; then
+  setxkbmap -option ctrl:nocaps
+fi
+pkill -9  xcape
+xcape -e 'Control_L=Escape'

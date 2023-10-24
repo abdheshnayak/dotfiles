@@ -1,0 +1,33 @@
+snippet cmd
+	#! /usr/bin/env bash
+
+	set -o nounset
+	set -o pipefail
+	set -o errexit
+
+	cmd=$$1
+	shift 1;
+
+	case $$cmd in
+		${1:install})
+			$0
+			;;
+		${2:uninstall})
+			;;
+		*)
+			echo "bad command: $1|$2"
+			;;
+	esac
+
+snippet check-command-exists
+	if command -v ${1:cmd} &> /dev/null; then
+		echo "[#] command ${1} already exists"
+	else
+		echo "[#] command ${1}, does not exist"
+	fi
+
+snippet pushd-silent
+	pushd $dir > /dev/null 2>&1 || exit 
+
+snippet popd-silent
+	popd > /dev/null 2>&1 || exit 

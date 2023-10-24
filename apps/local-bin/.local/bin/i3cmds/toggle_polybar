@@ -1,0 +1,3 @@
+#!/bin/bash
+if [ -z "$(xdotool search --onlyvisible --name Polybar)" ]; then xdo show -N Polybar; else 	xdo hide -N Polybar; fi
+

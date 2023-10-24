@@ -1,0 +1,11 @@
+#!/bin/sh
+# Give a battery name (Check the battery name from sys/class/power_supply/ e.g. BAT0 or BAT1 and pass it as an argument.
+
+File_Name="/sys/class/backlight/intel_backlight/brightness"
+
+x=100
+([[ -f $File_Name ]] ) && \
+        x=$(cat $File_Name) && ((x=x/75))
+
+printf " %s%s%%\\n" "$x"
+

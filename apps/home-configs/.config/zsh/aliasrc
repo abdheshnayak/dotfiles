@@ -65,4 +65,5 @@ alias \
 
 
 alias \
-	lock="i3lock-fancy" 
+	lock="i3lock-fancy" \
+	proxy="CONFIG_FILE=~/.config/proxy-conf.json proxy" \

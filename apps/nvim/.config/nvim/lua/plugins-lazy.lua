@@ -24,12 +24,12 @@ local function colorschemes()
   return {
     {
       "rebelot/kanagawa.nvim",
-      lazy = true,
-      event = events.VeryLazy,
-      init = function()
-        require("plugins.kanagawa")
-        vim.cmd("colorscheme kanagawa")
-      end,
+      -- lazy = true,
+      -- event = events.VeryLazy,
+      -- init = function()
+      --   require("plugins.kanagawa")
+      --   vim.cmd("colorscheme kanagawa")
+      -- end,
     },
     {
       "folke/tokyonight.nvim",
@@ -49,11 +49,11 @@ local function colorschemes()
     {
       "catppuccin/nvim",
       as = "catppuccin",
-      disabled = true,
+      -- disabled = true,
       events = events.BufRead,
       config = function()
-        -- require("plugins.catppuccin")
-        -- vim.cmd("colorscheme catppuccin")
+        require("plugins.catppuccin")
+        vim.cmd("colorscheme catppuccin")
       end,
     },
     {

@@ -214,6 +214,9 @@ lsp_config.tsserver.setup({
   cmd = lsp_servers.tsserver,
   capabilities = capabilities,
   root_dir = lsp_config.util.root_pattern("jsconfig.json", "tsconfig.json", "package.json", ".git"),
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  -- in pattern +xyz.abc.ts starts with + needs to be ignored
+  ignore_pattern = "[/\\\\]%..+%.ts$",
   on_attach = function(client)
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
@@ -249,6 +252,7 @@ lsp_config.dartls.setup({
 lsp_config.graphql.setup({
   cmd = lsp_servers.graphql,
   on_attach = on_attach,
+  filetypes = { "typescript" },
   root_dir = lsp_config.util.root_pattern("gqlgen.yml", ".graphql.config.*", "graphql.config.*"),
 })
 
@@ -331,6 +335,7 @@ lsp_config.lua_ls.setup({
 lsp_config.cssls.setup({
   capabilities = capabilities,
   cmd = lsp_servers.css,
+  filetypes = { "css" },
   on_attach = on_attach,
 })
 
@@ -339,8 +344,18 @@ lsp_config.tailwindcss.setup({
   cmd = lsp_servers.tailwindcss,
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "javascriptreact", "typescriptreact", "html", "css" },
-  root_dir = lsp_config.util.root_pattern("tailwind.config.js"),
+  filetypes = { "javascriptreact", "typescriptreact", "html", "css", "svelte" },
+  root_dir = lsp_config.util.root_pattern("tailwind.config.*"),
+  log_level = vim.lsp.protocol.MessageType.Warning,
+  settings = {},
+})
+
+lsp_config.svelte.setup({
+  cmd = { "svelteserver", "--stdio" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "svelte" },
+  root_dir = lsp_config.util.root_pattern("svelte.config.*"),
   log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {},
 })

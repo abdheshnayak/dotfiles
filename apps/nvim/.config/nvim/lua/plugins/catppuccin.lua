@@ -1,7 +1,8 @@
 require("catppuccin").setup({
-  flavour = "mocha", -- mocha, macchiato, frappe, latte
+  flavour = "latte", -- mocha, macchiato, frappe, latte
   background = {
-    dark = "mocha",
+    -- dark = "mocha",
+    light = "latte",
   },
   highlight_overrides = {
     all = function()
@@ -10,7 +11,7 @@ require("catppuccin").setup({
       }
     end,
   },
-  transparent_background = true,
+  transparent_background = false,
   integrations = {
     fidget = true,
     native_lsp = {

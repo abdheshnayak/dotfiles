@@ -16,6 +16,7 @@ alias \
 
 # Colorize commands when possible.
 alias \
+  dev="nix develop --command zsh" \
 	cd=z \
 	cdi=zi \
 	ls="ls -hN --color=auto --group-directories-first" \

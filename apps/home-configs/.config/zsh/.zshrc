@@ -98,13 +98,50 @@ bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 # fuzzy finder setup
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
+# Load zsh-syntax-highlighting; should be last.
+# ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(/mnt/c)
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 # source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+# path_array=("${(@s/:/)PATH}")
+#
+# for dir in "${path_array[@]}"; do
+#     ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(\"$dir\")
+# done
+#
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+#
+#
+hl_cmd=/home/vision/workplace/tmp/rust/cmd_highlighter 
+
+function highlight_command() {
+    local CMD=$BUFFER
+    local HIGHLIGHTED_CMD="$($hl_cmd "$CMD")"
+
+    # echo -e "$HIGHLIGHTED_CMD"
+    BUFFER=$HIGHLIGHTED_CMD
+    zle redisplay
+
+    # BUFFER=$CMD
+    # CURSOR=$#BUFFER
+}
+
+zle -N highlight_command
+bindkey "^X" highlight_command
+
+# function highlight_command() {
+#     BUFFER=$($hl_cmd "$BUFFER")
+# }
+#
+# function zle-line-pre-redraw() {
+#     highlight_command
+# }
+#
+# zle -N zle-line-pre-redraw
 
 export LANG=en_US.UTF-8
+
 
 
 function xg {
@@ -118,3 +155,4 @@ eval "$(starship init zsh)"
 
 
 eval "$(zoxide init zsh)"
+

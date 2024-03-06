@@ -148,8 +148,11 @@ local lsp_servers = {
     base_dir .. "/bash-language-server",
     "start",
   },
+  r_language_server={
+    base_dir .. "/r-languageserver"
+  },
   python = {
-    base_dir .. "/python/node_modules/.bin/pyright-langserver",
+    base_dir .. "/pyright-langserver",
     "--stdio",
   },
   quicklint = {
@@ -208,6 +211,18 @@ require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- local lspconfig_util = require("lspconfig.util")
 -- local add_bun_prefix = require("plugins.lsp.bun").add_bun_prefix
 -- lspconfig_util.on_setup = lspconfig_util.add_hook_before(lspconfig_util.on_setup, add_bun_prefix)
+
+lsp_config.r_language_server.setup({
+  cmd = lsp_servers.r_language_server,
+  capabilities = capabilities,
+  root_dir = lsp_config.util.root_pattern(".git"),
+  filetypes = { "r" },
+  on_attach = function(client)
+    client.config.flags.allow_incremental_sync = true
+    client.server_capabilities.document_formatting = true
+    on_attach(client)
+  end,
+})
 
 -- tsserver
 lsp_config.tsserver.setup({

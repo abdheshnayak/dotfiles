@@ -33,12 +33,11 @@ local function colorschemes()
     },
     {
       "folke/tokyonight.nvim",
-      -- event = events.UIEnter,
-      -- event = events.VeryLazy,
-      -- init = function()
-      --   require("plugins.tokyonight")
-      --   vim.cmd("colorscheme tokyonight")
-      -- end,
+      event = events.VeryLazy,
+      init = function()
+        require("plugins.tokyonight")
+        vim.cmd("colorscheme tokyonight")
+      end,
     },
     -- {
     --   "savq/melange-nvim",
@@ -48,13 +47,13 @@ local function colorschemes()
     -- },
     {
       "catppuccin/nvim",
-      as = "catppuccin",
-      -- disabled = true,
-      events = events.BufRead,
-      config = function()
-        require("plugins.catppuccin")
-        vim.cmd("colorscheme catppuccin")
-      end,
+      -- as = "catppuccin",
+      -- -- disabled = true,
+      -- events = events.BufRead,
+      -- config = function()
+      --   require("plugins.catppuccin")
+      --   vim.cmd("colorscheme catppuccin")
+      -- end,
     },
     {
       "towolf/vim-helm",
@@ -446,8 +445,11 @@ local function lsp()
 end
 
 local function completions()
+  -- print(vim.inspect(x))
+  local copilot = require("plugins.copilot").plugs
+
   return {
-    ["all"] = {
+    ["all"] = vim.tbl_extend("force", copilot, {
       {
         "hrsh7th/nvim-cmp",
         event = events.InsertEnter,
@@ -487,43 +489,6 @@ local function completions()
           { "hrsh7th/cmp-cmdline" },
           { "hrsh7th/cmp-buffer" },
           { "lukas-reineke/cmp-rg" },
-          {
-            "zbirenbaum/copilot.lua",
-            event = events.BufRead,
-            config = function()
-              require("keymaps-for-plugins").copilot_mappings()
-              vim.defer_fn(function()
-                require("copilot").setup({
-                  panel = { enabled = false },
-                  filetypes = {
-                    ["*"] = true,
-                  },
-                  suggestion = {
-                    enabled = true,
-                    auto_trigger = true,
-                    keymap = {
-                      accept = "<C-CR>",
-                      accept_word = false,
-                      accept_line = false,
-                      -- next = "<M-]>",
-                      -- prev = "<M-[>",
-                      -- dismiss = "<C-]>",
-                      next = "<C-j>",
-                      prev = "<C-k>",
-                      dismiss = "<C-c>",
-                    },
-                  },
-                })
-              end, 100)
-            end,
-          },
-          {
-            "zbirenbaum/copilot-cmp",
-            after = { "copilot.lua" },
-            config = function()
-              require("copilot_cmp").setup()
-            end,
-          },
         },
       },
       {
@@ -538,15 +503,9 @@ local function completions()
           require("codeium").setup({})
         end,
       },
-      {
-        "github/copilot.vim",
-        event = events.BufRead,
-        config = function()
-          require("keymaps-for-plugins").copilot_mappings()
-        end,
-      },
-    },
-    ["minimal"] = {
+    }),
+
+    ["minimal"] = vim.tbl_extend("force", copilot, {
       {
         "hrsh7th/nvim-cmp",
         event = events.InsertEnter,
@@ -568,31 +527,12 @@ local function completions()
           require("plugins.nvim-cmp")
         end,
       },
-      {
-        "zbirenbaum/copilot.lua",
-        event = events.BufRead,
-        config = function()
-          require("keymaps-for-plugins").copilot_mappings()
-          vim.defer_fn(function()
-            require("copilot").setup({
-              panel = { enabled = false },
-              filetypes = {
-                ["*"] = true,
-              },
-              suggestion = {
-                enabled = true,
-                auto_trigger = true,
-                keymap = nil,
-              },
-            })
-          end, 100)
-        end,
-      },
-    },
+    }),
   }
 end
 
 local function search_and_replace()
+  -- return vim.tbl_extend(behavior, ...)
   return {
     {
       "windwp/nvim-spectre",

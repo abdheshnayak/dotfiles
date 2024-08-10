@@ -76,6 +76,6 @@ M.plugs = {
   },
 }
 
--- M.plugs = {}
+M.plugs = {}
 
 return M

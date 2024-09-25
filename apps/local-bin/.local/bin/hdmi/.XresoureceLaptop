@@ -1,5 +1,5 @@
 !-- Xft settings -- !
-Xft.dpi: 100
+Xft.dpi: 130
 URxvt.font: xft:'Operator Mono Lig Medium':size=10
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault

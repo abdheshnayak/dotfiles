@@ -1,8 +1,8 @@
 #! /bin/bash
 
 HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=5000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=10000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -110,7 +110,7 @@ bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 #     ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(\"$dir\")
 # done
 #
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #
 #
 hl_cmd=/home/vision/workplace/tmp/rust/cmd_highlighter 
@@ -141,6 +141,8 @@ bindkey "^X" highlight_command
 # zle -N zle-line-pre-redraw
 
 export LANG=en_US.UTF-8
+
+PATH=$PATH:/opt/intellij-idea-ultimate-edition/bin
 
 
 

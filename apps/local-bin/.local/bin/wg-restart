@@ -1,2 +1,1 @@
-wg-quick down $1
-wg-quick up $1
+sudo wgctl -u $1

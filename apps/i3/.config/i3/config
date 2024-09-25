@@ -18,17 +18,18 @@ set $alt Mod1
 # is used in the bar {} block below.
 font pango:monospace 8
 
-exec --no-startup-id fusuma
+# exec --no-startup-id xautolock -time 5  -detectsleep -locker "pactl set-sink-mute @DEFAULT_SINK@ toggle && systemctl suspend & i3lock-fancy -t $(whoami)"
+exec --no-startup-id fusuma -c ~/.config/fusuma/config.yml
 exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
-
 exec --no-startup-id watch -n 900 graythr # to graythr handle
 exec --no-startup-id dunst # dunst for notifications
 exec_always --no-startup-id remaps # set keyboard speed and remap keys
 exec --no-startup-id setbg # set random background image frm ~/Pictures/wall
-exec --no-startup-id picom --experimental-backend # picom for transparency and smoothness
+exec --no-startup-id picom # picom for transparency and smoothness
+exec --no-startup-id nm-applet
 exec --no-startup-id unclutter # Remove mouse when idle
 exec --no-startup-id xrdb merge ~/.Xresources # themes settings
- exec --no-startup-id /usr/lib/gsd-xsettings
+exec --no-startup-id /usr/lib/gsd-xsettings
 # exec --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png "Welcome to LARBS" "Press super+F1 for the help menu." # LARBSWELCOME
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -286,13 +287,13 @@ bindsym $mod+x			exec --no-startup-id amixer sset Master mute; workspace 0 ; exe
 
 
 # exec --no-startup-id redshift -O 3000
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 14.95:77.62
 exec --no-startup-id xset s off -dpms 
 # exec --no-startup-id xscreensaver 
 
 # bindsym XF86MonBrightnessDown	exec --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
-bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 5 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessUp	exec --no-startup-id light -A 5 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown	exec --no-startup-id brightnessctl s 20- && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp	exec --no-startup-id brightnessctl s +20 && pkill -RTMIN+2 i3blocks
 
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 

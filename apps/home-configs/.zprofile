@@ -26,7 +26,7 @@ export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/inputrc"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZOOM_CONFIG_DIR="$HOME/.config/zoom"
-export KUBECONFIG="$HOME/.kube/config"
+# export KUBECONFIG="$HOME/.kube/config"
 
 # export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 

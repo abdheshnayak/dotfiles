@@ -16,7 +16,7 @@ alias \
 
 # Colorize commands when possible.
 alias \
-  dev="nix develop --command zsh" \
+  dev="nix develop --extra-experimental-features nix-command --extra-experimental-features flakes  --command zsh" \
 	cd=z \
 	cdi=zi \
 	ls="ls -hN --color=auto --group-directories-first" \
@@ -31,6 +31,7 @@ alias \
 	ka="killall" \
 	g="git" \
 	gst="git status" \
+	gs="git status" \
 	k="kubectl" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \

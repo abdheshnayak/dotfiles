@@ -265,9 +265,9 @@ local function syntax()
         dependencies = {
           { "nvim-treesitter/nvim-treesitter-refactor" },
           { "nvim-treesitter/nvim-treesitter-textobjects" },
-          {
-            "JoosepAlviste/nvim-ts-context-commentstring",
-          },
+          -- {
+            -- "JoosepAlviste/nvim-ts-context-commentstring",
+          -- },
           { "p00f/nvim-ts-rainbow" },
           { "nvim-treesitter/playground" },
         },
@@ -319,7 +319,7 @@ local function syntax()
         end,
         dependencies = {
           { "nvim-treesitter/nvim-treesitter-textobjects" },
-          { "JoosepAlviste/nvim-ts-context-commentstring" },
+          -- { "JoosepAlviste/nvim-ts-context-commentstring" },
           { "nvim-treesitter/playground" },
         },
       },

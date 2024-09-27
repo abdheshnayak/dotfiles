@@ -7,6 +7,7 @@ require("mini.comment").setup({
   mappings = {
     comment = "s;",
     comment_line = "s;",
+    comment_visual = "s;",
   },
 })
 

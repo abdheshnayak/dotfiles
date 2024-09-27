@@ -45,9 +45,9 @@ require("nvim-treesitter.configs").setup({
     },
   },
   indent = { enable = true },
-  matchup = {
-    enable = true,
-  },
+  -- matchup = {
+  --   enable = true,
+  -- },
   autotag = {
     enable = true,
   },
@@ -66,13 +66,13 @@ require("nvim-treesitter.configs").setup({
     }, -- table of hex strings
   },
   -- Context CommentString
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = true,
-    config = {
-      gotmpl = "{{/* %s */}}",
-    },
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = true,
+  --   config = {
+  --     gotmpl = "{{/* %s */}}",
+  --   },
+  -- },
   -- refactor = {
   --   smart_rename = {
   --     enable = true,

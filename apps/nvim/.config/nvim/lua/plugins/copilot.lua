@@ -76,6 +76,11 @@ M.plugs = {
   },
 }
 
-M.plugs = {}
+M.plugs = {
+  "supermaven-inc/supermaven-nvim",
+  config = function()
+    require("supermaven-nvim").setup({})
+  end,
+}
 
 return M

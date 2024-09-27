@@ -265,9 +265,7 @@ local function syntax()
         dependencies = {
           { "nvim-treesitter/nvim-treesitter-refactor" },
           { "nvim-treesitter/nvim-treesitter-textobjects" },
-          -- {
-            -- "JoosepAlviste/nvim-ts-context-commentstring",
-          -- },
+          -- { "JoosepAlviste/nvim-ts-context-commentstring" },
           { "p00f/nvim-ts-rainbow" },
           { "nvim-treesitter/playground" },
         },
@@ -280,14 +278,14 @@ local function syntax()
         end,
       },
 
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        event = events.BufRead,
-        dependencies = { "nvim-treesitter" },
-        config = function()
-          require("treesitter-context").setup()
-        end,
-      },
+--      {
+--        "nvim-treesitter/nvim-treesitter-context",
+--        event = events.BufRead,
+--        dependencies = { "nvim-treesitter" },
+--        config = function()
+--          require("treesitter-context").setup()
+--        end,
+--      },
       {
         "kevinhwang91/nvim-ufo",
         event = events.BufRead,
@@ -312,17 +310,24 @@ local function syntax()
 
     ["minimal"] = {
       {
-        "nvim-treesitter/nvim-treesitter",
-        event = events.BufRead,
+        "JoosepAlviste/nvim-ts-context-commentstring",
         config = function()
-          require("plugins.treesitter")
+          require("ts_context_commentstring").setup({
+            -- enable_autocmd = false,
+          })
         end,
-        dependencies = {
-          { "nvim-treesitter/nvim-treesitter-textobjects" },
-          -- { "JoosepAlviste/nvim-ts-context-commentstring" },
-          { "nvim-treesitter/playground" },
-        },
       },
+     {
+       "nvim-treesitter/nvim-treesitter",
+       event = events.BufRead,
+       config = function()
+         require("plugins.treesitter")
+       end,
+       dependencies = {
+         { "nvim-treesitter/nvim-treesitter-textobjects" },
+         { "nvim-treesitter/playground" },
+       },
+     },
       {
         "ziontee113/syntax-tree-surfer",
         dependencies = {
@@ -451,6 +456,18 @@ local function completions()
   return {
     ["all"] = vim.tbl_extend("force", copilot, {
       {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+          require("supermaven-nvim").setup({
+            keymaps = {
+              accept_suggestion = "<M-l>",
+              -- clear_suggestion = "<C-]>",
+              -- accept_word = "<C-j>",
+            },
+          })
+        end,
+      },
+      {
         "hrsh7th/nvim-cmp",
         event = events.InsertEnter,
         config = function()
@@ -506,6 +523,18 @@ local function completions()
     }),
 
     ["minimal"] = vim.tbl_extend("force", copilot, {
+      {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+          require("supermaven-nvim").setup({
+            keymaps = {
+              accept_suggestion = "<M-l>",
+              -- clear_suggestion = "<C-]>",
+              -- accept_word = "<M-l>",
+            },
+          })
+        end,
+      },
       {
         "hrsh7th/nvim-cmp",
         event = events.InsertEnter,

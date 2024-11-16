@@ -101,7 +101,7 @@ local lsp_config = require("lspconfig")
 
 local base_dir = vim.fn.stdpath("data") .. "/mason/bin"
 local lsp_servers = {
-  tsserver = {
+  ts_ls = {
     base_dir .. "/typescript-language-server",
     "--stdio",
   },
@@ -224,9 +224,9 @@ lsp_config.r_language_server.setup({
   end,
 })
 
--- tsserver
-lsp_config.tsserver.setup({
-  cmd = lsp_servers.tsserver,
+-- ts_ls
+lsp_config.ts_ls.setup({
+  cmd = lsp_servers.ts_ls,
   capabilities = capabilities,
   root_dir = lsp_config.util.root_pattern("jsconfig.json", "tsconfig.json", "package.json", ".git"),
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },

@@ -58,7 +58,6 @@ alias \
 
 # Practice words
 alias \
-	speak="speak-ng" \
 	wg-quick="sudo wg-quick" \
 	wg="sudo wg" \
 	tf="terraform" \

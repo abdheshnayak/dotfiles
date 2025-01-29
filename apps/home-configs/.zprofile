@@ -46,7 +46,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 # Switch escape and caps if tty and no passwd required:
 sudo -n loadkeys $HOME/.local/share/larbs/ttymaps.kmap 2>/dev/null
 
-PATH=$PATH:$HOME/go/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/bin/__pycache__:$HOME/.local/bin/statusbar:$HOME/.local/bin/i3cmds:$HOME/.local/bin/cron:$HOME/.local/bin/:$HOME/.config/rofi/bin:$HOME/go/go1.18.3/bin
+PATH=$PATH:$HOME/go/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/bin/__pycache__:$HOME/.local/bin/downloads:$HOME/.local/bin/utils:$HOME/.local/bin/cron:$HOME/.local/bin/:$HOME/.config/rofi/bin:$HOME/go/go1.18.3/bin
 
 
 # NODE_OPTIONS=--max-old-space-size=5000

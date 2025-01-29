@@ -1,5 +1,0 @@
-text=$(wl-paste)
-
-speaker_id=p243
-
-curl --data-urlencode "language_id=en"  --data-urlencode "text=$text"   --data-urlencode "speaker_id=$speaker_id" 'http://localhost:5002/api/tts' | aplay > /dev/null 2>&1

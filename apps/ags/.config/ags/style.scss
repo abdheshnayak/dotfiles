@@ -1,0 +1,153 @@
+@use "sass:color";
+
+@use '../../.cache/wal/colors.scss' as wal;
+
+$bg: wal.$background;
+$barBg: rgba(wal.$background, 0.8);
+$fg: wal.$foreground;
+$accent: wal.$color5;
+$border: wal.$color11;
+$radius: 7px;
+
+button {
+     &.iconOnly {
+        icon {
+            margin: 0;
+        }
+      }
+     all: unset;
+     background-color: transparent;
+     border-radius: $radius;
+     padding: 0 0.25em;
+
+     &:hover {
+       background-color: color.adjust($fg, $alpha: -0.84);
+       border-color: color.adjust($accent, $alpha: -0.8);
+     }
+
+     &:active {
+       background-color: color.adjust($fg, $alpha: -0.8)
+     }
+}
+
+window.Bar {
+    border: none;
+    box-shadow: none;
+    background-color: $barBg;
+    color: $fg;
+    font-size: 0.9em;
+    font-weight: bold;
+
+    // .SysTray {
+    //   border-radius: $radius;
+    //   background-color: color.adjust($fg, $alpha: -0.84);
+    //   border-color: color.adjust($accent, $alpha: -0.8);
+    // }
+
+    .Workspaces  {
+        button {
+            all: unset;
+            background-color: transparent;
+
+            &:hover label {
+                background-color: color.adjust($fg, $alpha: -0.84);
+                border-color: color.adjust($accent, $alpha: -0.8);
+            }
+
+            &:active label {
+                background-color: color.adjust($fg, $alpha: -0.8)
+            }
+        }
+
+        label {
+            transition: 200ms;
+            padding: 0 8px;
+            margin: 2px;
+            border-radius: $radius;
+            border: 1pt solid transparent;
+        }
+
+        .focused label {
+            color: $accent;
+            border-color: $accent;
+        }
+    }
+
+    .FocusedClient {
+        color: $accent;
+    }
+
+    .Media .Cover {
+        min-height: 1.2em;
+        min-width: 1.2em;
+        border-radius: $radius;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .Battery label {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .AudioSlider {
+        * {
+            all: unset;
+        }
+
+        icon {
+            margin-right: .6em;
+        }
+
+        trough {
+            background-color: color.adjust($fg, $alpha: -0.8);
+            border-radius: $radius;
+        }
+
+        highlight {
+            background-color: $accent;
+            min-height: .8em;
+            border-radius: $radius;
+        }
+
+        slider {
+            background-color: $fg;
+            border-radius: $radius;
+            min-height: 1em;
+            min-width: 1em;
+            margin: -.2em;
+        }
+    }
+}
+
+.barItem{
+  icon{
+      margin: 0 0.5rem 0 0;
+  }
+  margin: 0.1em 0.15rem;
+  padding: 0 0.5rem;
+
+  border: 0.5pt solid $border;
+  border-radius: $radius;
+  background: $bg;
+}
+
+.bluetooth-connected {
+    color: $accent;
+    border-color: $accent;
+}
+
+.TimeBar{
+  label{
+    background: rgba($barBg, 0.5);
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.5em;
+    border-radius: $radius;
+
+    font-weight: bold;
+    color: $fg;
+  }
+}

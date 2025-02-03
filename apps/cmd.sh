@@ -1,11 +1,11 @@
 #! /usr/bin/env zsh
 
 stowIt() {
-  stow -t $HOME $1
+  stow --adopt -t $HOME $1
 }
 
 stowItOverride() {
-  stow -t $HOME $1
+  stow -t $HOME $1 
 }
 
 unstowIt() {

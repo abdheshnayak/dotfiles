@@ -38,12 +38,6 @@ window.Bar {
     font-size: 0.9em;
     font-weight: bold;
 
-    // .SysTray {
-    //   border-radius: $radius;
-    //   background-color: color.adjust($fg, $alpha: -0.84);
-    //   border-color: color.adjust($accent, $alpha: -0.8);
-    // }
-
     .Workspaces  {
         button {
             all: unset;
@@ -122,6 +116,7 @@ window.Bar {
 
 .barItem{
   icon{
+      font-size: 1.1em;
       margin: 0 0.5rem 0 0;
   }
   margin: 0.1em 0.15rem;
@@ -130,11 +125,6 @@ window.Bar {
   border: 0.5pt solid $border;
   border-radius: $radius;
   background: $bg;
-}
-
-.bluetooth-connected {
-    color: $accent;
-    border-color: $accent;
 }
 
 .TimeBar{
@@ -151,3 +141,14 @@ window.Bar {
     color: $fg;
   }
 }
+
+centerbox{
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+.SysTray {
+    font-size: 1.3em;
+  }

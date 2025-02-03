@@ -404,12 +404,25 @@ local function lsp()
         --   end,
         -- },
         "b0o/schemastore.nvim",
-        {
-          "jose-elias-alvarez/null-ls.nvim",
-          config = function()
-            require("plugins.null-ls")
-          end,
-        },
+        -- {
+        --   "nvimtools/none-ls.nvim",
+        --   config = function()
+        --     require("plugins.null-ls")
+        --   end,
+        --   dependencies = {
+        --     "nvimtools/none-ls-extras.nvim"
+        --   },
+        -- },
+
+        -- {
+        --   "nvimdev/guard.nvim",
+        --   -- lazy load by ft
+        --   ft = { "typescriptreact" },
+        --   -- Builtin configuration, optional
+        --   dependencies = {
+        --     "nvimdev/guard-collection",
+        --   },
+        -- },
       },
     },
     -- {

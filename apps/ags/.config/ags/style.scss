@@ -1,6 +1,6 @@
 @use "sass:color";
 
-@use '../../.cache/wal/colors.scss' as wal;
+@use './colors.scss' as wal;
 
 $bg: wal.$background;
 $barBg: rgba(wal.$background, 0.8);

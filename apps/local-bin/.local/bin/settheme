@@ -33,23 +33,23 @@ THEME_FILE=~/.config/kitty/theme.conf
   if [[ "$COLOR_SCHEME" == "dark" ]]; then
     echo "include themes/kanagawa.conf"
     echo "# background_image_layout tiled"
-    echo "# background_image /home/vision/Downloads/pt.png"
+    echo "# background_image /home/vision/Pictures/wall/pt.png"
     echo "# background_tint 0.55"
   else
     echo "# include themes/kanagawa.conf"
     echo "include themes/latte.conf"
     echo "background_image_layout tiled"
-    echo "background_image /home/vision/Downloads/pt.png"
+    echo "background_image /home/vision/Pictures/wall/pt.png"
     echo "background_tint 0.55"
   fi
 } >"$THEME_FILE"
 
-if [[ "$COLOR_SCHEME" == "dark" ]]; then
+if [[ "$COLOR_SCHEME" == "light" ]]; then
   echo "dark" >~/.theme
   ln -sf ~/.config/k9s/skins/catppuccin-frappe.yaml ~/.config/k9s/skins/default.yaml
-  echo "set -g @catppuccin_flavour 'frappe'" >~/.config/tmux/theme.conf
+  echo "set -g @catppuccin_flavour 'latte'" >~/.config/tmux/theme.conf
 else
   echo "light" >~/.theme
   ln -sf ~/.config/k9s/skins/catppuccin-latte.yaml ~/.config/k9s/skins/default.yaml
-  echo "set -g @catppuccin_flavour 'latte'" >~/.config/tmux/theme.conf
+  echo "set -g @catppuccin_flavour 'frappe'" >~/.config/tmux/theme.conf
 fi

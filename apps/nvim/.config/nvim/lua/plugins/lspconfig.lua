@@ -54,14 +54,14 @@ local function on_attach(client, bufnr)
       async = false,
       filter = function(client)
         -- apply whatever logic you want (in this example, we'll only use null-ls)
-        if
-            vim.bo.filetype == "javascriptreact"
-            or vim.bo.filetype == "typescriptreact"
-            or vim.bo.filetype == "javascript"
-            or vim.bo.filetype == "typescript"
-        then
-          return client.name == "null-ls"
-        end
+        -- if
+        --     vim.bo.filetype == "javascriptreact"
+        --     or vim.bo.filetype == "typescriptreact"
+        --     or vim.bo.filetype == "javascript"
+        --     or vim.bo.filetype == "typescript"
+        -- then
+        --   return client.name == "none-ls"
+        -- end
         return true
       end,
       -- bufnr = bufnr,
@@ -241,11 +241,16 @@ lsp_config.ts_ls.setup({
   end,
 })
 
--- lsp_config.eslint.setup({
---   cmd = lsp_servers.eslint_d,
---   on_attach = on_attach,
---   root_dir = lsp_config.util.root_pattern(".eslintrc.yml", "package.json"),
--- })
+lsp_config.eslint.setup({
+  root_dir = lsp_config.util.root_pattern(".eslintrc.yml", "package.json"),
+  on_attach = function(client, bufnr)
+    -- Automatically fix issues on save
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
 
 lsp_config.dartls.setup({
   cmd = lsp_servers.dartls,

@@ -7,4 +7,6 @@ case $BLOCK_BUTTON in
 esac
 
 # free -h | awk '/^Mem:/ {print $3 "/" $2}'
-free -h | awk '/^Mem:/ {print $3}'
+# free -h | awk '/^Mem:/ {print $3}'
+
+free -h --si | awk '/^Mem:/ {print $3 - $6 "G" "/" $3 }'

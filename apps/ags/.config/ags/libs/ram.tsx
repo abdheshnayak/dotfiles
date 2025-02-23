@@ -10,7 +10,7 @@ export default function Ram({ className = "" }: { format?: string, className?: s
     // const resp =sh`clock`
 
     return <box className={className}>
-        <icon icon={"ram-memory-symbolic"} />
+        <icon css={"color: #6bbf59"} icon={"ram-memory-symbolic"} />
         <label
             onDestroy={() => ram.drop()}
             label={ram()}

@@ -86,7 +86,7 @@ rules:
     - off
   max-len:
     - error
-    - code: 100
+    - code: 200
   func-call-spacing:
     - error
   array-bracket-spacing:

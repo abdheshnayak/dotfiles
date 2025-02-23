@@ -5,6 +5,7 @@ import Brightness from "~/libs/brighness"
 import FocusedClient from "~/libs/focused"
 import PowerButton from "~/libs/powerbutton"
 import Ram from "~/libs/ram"
+import ThemeButton from "~/libs/theme"
 import Time from "~/libs/time"
 import SysTray from "~/libs/tray"
 import AudioSlider from "~/libs/volume"
@@ -41,6 +42,7 @@ export default function Bar(_: Gdk.Monitor) {
                 {/* <Media /> */}
             </box>
             <box hexpand halign={Gtk.Align.END} >
+                <ThemeButton />
                 <Ram className="barItem" />
                 {/* <Bandwidth className="barItem" /> */}
                 <Wifi className="barItem" />

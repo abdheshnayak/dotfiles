@@ -2,7 +2,7 @@ import { bind, Variable } from "astal"
 import Network from "gi://AstalNetwork"
 import { sh } from "~/utils/fn"
 
-const b1024 = BigInt(1024)
+const b1024 = BigInt(1000)
 
 const stats = () => {
     try {

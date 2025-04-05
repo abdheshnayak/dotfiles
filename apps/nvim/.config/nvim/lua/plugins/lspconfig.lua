@@ -244,11 +244,13 @@ lsp_config.ts_ls.setup({
 lsp_config.eslint.setup({
   root_dir = lsp_config.util.root_pattern(".eslintrc.yml", "package.json"),
   on_attach = function(client, bufnr)
-    -- Automatically fix issues on save
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
+    -- client.server_capabilities.document_formatting = true
+
+    -- -- Automatically fix issues on save
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   buffer = bufnr,
+    --   command = "EslintFixAll",
+    -- })
   end,
 })
 

@@ -12,7 +12,7 @@ import AudioSlider from "~/libs/volume"
 import Wifi from "~/libs/wifi"
 import Workspaces from "~/libs/workspaces"
 
-export default function Bar(_: Gdk.Monitor) {
+export default function Bar(monitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
     const app = Astal.Application.get_default()
@@ -20,9 +20,10 @@ export default function Bar(_: Gdk.Monitor) {
     return <window
         name="bar"
         className="Bar"
-        // gdkmonitor={monitor}
-        visible={true}
-        exclusivity={Astal.Exclusivity.EXCLUSIVE}
+        gdkmonitor={monitor}
+        visible={false}
+        layer={Astal.Layer.TOP}
+        exclusivity={Astal.Exclusivity.NORMAL}
         // @ts-ignore
         application={app}
         anchor={TOP | LEFT | RIGHT}>
@@ -30,7 +31,7 @@ export default function Bar(_: Gdk.Monitor) {
             <box hexpand
                 halign={Gtk.Align.START}
             >
-                <Workspaces />
+                <Workspaces monitor={monitor} />
                 <FocusedClient />
             </box>
             <box

@@ -21,7 +21,8 @@ class ThemeClass extends GObject.Object {
 
   set theme(v) {
       const next = get() === "'prefer-light'" ? "prefer-dark" : "prefer-light"
-      shAsync(`gsettings set org.gnome.desktop.interface color-scheme ${next}`).then(() => {
+
+      shAsync(`gsettings set org.gnome.desktop.interface color-scheme ${next} && settheme`).then(() => {
           this.#theme = get()
           this.notify("theme")
       })

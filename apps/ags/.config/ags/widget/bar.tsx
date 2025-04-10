@@ -3,6 +3,7 @@ import BatteryLevel from "~/libs/battery"
 import Bluetooth from "~/libs/bluetooth"
 import Brightness from "~/libs/brighness"
 import FocusedClient from "~/libs/focused"
+import NightLightButton from "~/libs/night"
 import PowerButton from "~/libs/powerbutton"
 import Ram from "~/libs/ram"
 import ThemeButton from "~/libs/theme"
@@ -21,9 +22,9 @@ export default function Bar(monitor: Gdk.Monitor) {
         name="bar"
         className="Bar"
         gdkmonitor={monitor}
-        visible={false}
-        layer={Astal.Layer.TOP}
-        exclusivity={Astal.Exclusivity.NORMAL}
+        visible={true}
+        // layer={Astal.Layer.TOP}
+        exclusivity={Astal.Exclusivity.EXCLUSIVE}
         // @ts-ignore
         application={app}
         anchor={TOP | LEFT | RIGHT}>
@@ -43,6 +44,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                 {/* <Media /> */}
             </box>
             <box hexpand halign={Gtk.Align.END} >
+                <NightLightButton />
                 <ThemeButton />
                 <Ram className="barItem" />
                 {/* <Bandwidth className="barItem" /> */}

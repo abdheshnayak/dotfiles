@@ -95,6 +95,22 @@ vim.cmd([[au! BufEnter * set fo-=c fo-=r fo-=o]])
 opt.ttyfast = true
 -- opt.lazyredraw = true
 
+vim.opt.clipboard:append("unnamedplus")
+
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = "powershell.exe -noprofile -command Get-Clipboard",
+    ["*"] = "powershell.exe -noprofile -command Get-Clipboard",
+  },
+  cache_enabled = 0,
+}
+
+
 -- colors
 opt.termguicolors = true
 opt.updatetime = 100

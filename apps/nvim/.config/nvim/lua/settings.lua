@@ -95,7 +95,7 @@ vim.cmd([[au! BufEnter * set fo-=c fo-=r fo-=o]])
 opt.ttyfast = true
 -- opt.lazyredraw = true
 
-vim.opt.clipboard:append("unnamedplus")
+-- vim.opt.clipboard:append("unnamedplus")
 
 vim.g.clipboard = {
   name = "WslClipboard",
@@ -105,7 +105,7 @@ vim.g.clipboard = {
   },
   paste = {
     ["+"] = "powershell.exe -noprofile -command Get-Clipboard",
-    ["*"] = "powershell.exe -noprofile -command Get-Clipboard",
+    -- ["*"] = "powershell.exe -noprofile -command Get-Clipboard",
   },
   cache_enabled = 0,
 }

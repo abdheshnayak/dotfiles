@@ -176,4 +176,3 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
     # echo "Current theme is set to: $THEME"
 fi
 
-settheme

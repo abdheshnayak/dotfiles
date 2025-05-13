@@ -19,7 +19,7 @@ alias \
   dev="nix develop --extra-experimental-features nix-command --extra-experimental-features flakes  --command zsh" \
 	cd=z \
 	cdi=zi \
-	ls="ls -hN --color=auto --group-directories-first" \
+	ls="ls -G" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"

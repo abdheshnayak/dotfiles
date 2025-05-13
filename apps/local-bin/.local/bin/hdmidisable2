@@ -1,4 +1,0 @@
-#!/bin/bash
-
-
-xrandr --output DP-2 --off

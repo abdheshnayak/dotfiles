@@ -52,3 +52,6 @@ PATH=$PATH:$HOME/go/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/def
 # NODE_OPTIONS=--max-old-space-size=5000
 
 # PATH="$PATH":"$HOME/.pub-cache/bin"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+

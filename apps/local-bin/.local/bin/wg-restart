@@ -1,1 +1,0 @@
-sudo wgctl -u $1

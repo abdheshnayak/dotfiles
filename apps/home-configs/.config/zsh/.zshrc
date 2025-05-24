@@ -87,92 +87,27 @@ bindkey -s '^[o' 'rangercd\n'  # zsh
 bindkey -s '^p' 'code .\n'  # zsh
 bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 
-
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-# source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
-
-# powerlevel10k enable
-# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
 # fuzzy finder setup
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
-
-# Load zsh-syntax-highlighting; should be last.
-# ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(/mnt/c)
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# path_array=("${(@s/:/)PATH}")
-#
-# for dir in "${path_array[@]}"; do
-#     ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(\"$dir\")
-# done
-#
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-#
-#
-hl_cmd=/home/vision/workplace/tmp/rust/cmd_highlighter 
-
-function highlight_command() {
-    local CMD=$BUFFER
-    local HIGHLIGHTED_CMD="$($hl_cmd "$CMD")"
-
-    # echo -e "$HIGHLIGHTED_CMD"
-    BUFFER=$HIGHLIGHTED_CMD
-    zle redisplay
-
-    # BUFFER=$CMD
-    # CURSOR=$#BUFFER
-}
-
-zle -N highlight_command
-bindkey "^X" highlight_command
-
-# function highlight_command() {
-#     BUFFER=$($hl_cmd "$BUFFER")
-# }
-#
-# function zle-line-pre-redraw() {
-#     highlight_command
-# }
-#
-# zle -N zle-line-pre-redraw
+if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 export LANG=en_US.UTF-8
 
 PATH=$PATH:/opt/intellij-idea-ultimate-edition/bin
 
-
-
-function xg {
-  DRI_PRIME=1 $@
-}
-
 source ~/.zprofile
 
 eval "$(starship init zsh)"
-# source ~/.config/.oh-my-zsh/oh-my-zsh.sh
-
 
 eval "$(zoxide init zsh)"
 
-
-if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    # Fetch the current color scheme
-    color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
-
-    # Remove quotes around the result and check the value
-    if [[ "$color_scheme" == "'prefer-dark'" ]]; then
-        export THEME="dark"
-    elif [[ "$color_scheme" == "'prefer-light'" ]]; then
-        export THEME="light"
-    else
-        export THEME="default"
-    fi
-
-    # Optionally print the current theme for debugging
-    # echo "Current theme is set to: $THEME"
+if [ -x "$(command -v gettheme)" ]; then
+  export THEME="$(gettheme)"
 fi
 
+if [ -x "$(command -v settheme)" ]; then
+  settheme
+fi

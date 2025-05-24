@@ -55,3 +55,9 @@ PATH=$PATH:$HOME/go/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/def
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
+
+if [ -f "$HOME/.aws/aws-exports" ]; then
+  source "$HOME/.aws/aws-exports"
+fi

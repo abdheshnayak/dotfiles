@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]; then
+  export THEME="dark"
+else
+  export THEME="light"
+fi
+
+echo $THEME

@@ -54,14 +54,14 @@ local function on_attach(client, bufnr)
       async = false,
       filter = function(client)
         -- apply whatever logic you want (in this example, we'll only use null-ls)
-        if
-            vim.bo.filetype == "javascriptreact"
-            or vim.bo.filetype == "typescriptreact"
-            or vim.bo.filetype == "javascript"
-            or vim.bo.filetype == "typescript"
-        then
-          return client.name == "null-ls"
-        end
+        -- if
+        --     vim.bo.filetype == "javascriptreact"
+        --     or vim.bo.filetype == "typescriptreact"
+        --     or vim.bo.filetype == "javascript"
+        --     or vim.bo.filetype == "typescript"
+        -- then
+        --   return client.name == "none-ls"
+        -- end
         return true
       end,
       -- bufnr = bufnr,
@@ -101,7 +101,7 @@ local lsp_config = require("lspconfig")
 
 local base_dir = vim.fn.stdpath("data") .. "/mason/bin"
 local lsp_servers = {
-  tsserver = {
+  ts_ls = {
     base_dir .. "/typescript-language-server",
     "--stdio",
   },
@@ -224,9 +224,9 @@ lsp_config.r_language_server.setup({
   end,
 })
 
--- tsserver
-lsp_config.tsserver.setup({
-  cmd = lsp_servers.tsserver,
+-- ts_ls
+lsp_config.ts_ls.setup({
+  cmd = lsp_servers.ts_ls,
   capabilities = capabilities,
   root_dir = lsp_config.util.root_pattern("jsconfig.json", "tsconfig.json", "package.json", ".git"),
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -241,11 +241,18 @@ lsp_config.tsserver.setup({
   end,
 })
 
--- lsp_config.eslint.setup({
---   cmd = lsp_servers.eslint_d,
---   on_attach = on_attach,
---   root_dir = lsp_config.util.root_pattern(".eslintrc.yml", "package.json"),
--- })
+lsp_config.eslint.setup({
+  root_dir = lsp_config.util.root_pattern(".eslintrc.yml", "package.json"),
+  on_attach = function(client, bufnr)
+    -- client.server_capabilities.document_formatting = true
+
+    -- -- Automatically fix issues on save
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   buffer = bufnr,
+    --   command = "EslintFixAll",
+    -- })
+  end,
+})
 
 lsp_config.dartls.setup({
   cmd = lsp_servers.dartls,

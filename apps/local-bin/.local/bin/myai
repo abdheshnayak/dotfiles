@@ -1,0 +1,7 @@
+pushd /home/vision/workplace/tmp/ai/agent
+
+source .venv/bin/activate
+
+python main.py
+
+popd

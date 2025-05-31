@@ -24,7 +24,7 @@ M.plugs = {
             enabled = true,
             auto_trigger = true,
             keymap = {
-              accept = "<C-CR>",
+              accept = "<M-l>",
               accept_word = false,
               accept_line = false,
               -- next = "<M-]>",
@@ -76,11 +76,25 @@ M.plugs = {
   },
 }
 
+-- M.plugs = {
+--   "supermaven-inc/supermaven-nvim",
+--   config = function()
+--     require("supermaven-nvim").setup({})
+--   end,
+-- }
 M.plugs = {
-  "supermaven-inc/supermaven-nvim",
-  config = function()
-    require("supermaven-nvim").setup({})
-  end,
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<M-l>",
+          -- clear_suggestion = "<C-]>",
+          -- accept_word = "<C-j>",
+        },
+      })
+    end,
+  },
 }
 
 return M

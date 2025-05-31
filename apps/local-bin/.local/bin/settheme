@@ -1,20 +1,55 @@
 #!/bin/bash
 
+theme=$1
+
+if [[ "$theme" == "dark" ]]; then
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+elif [[ "$theme" == "light" ]]; then
+  gsettings set org.gnome.desktop.interface color-scheme prefer-light
+fi
+
+if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]] || [[ "$XDG_CURRENT_DESKTOP" == *"Hyprland"* ]] || [[ "$XDG_CURRENT_DESKTOP" == *"Sway"* ]]; then
+  # Fetch the current color scheme
+  color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+  # Remove quotes around the result and check the value
+  if [[ "$color_scheme" == "'prefer-dark'" ]]; then
+    export THEME="dark"
+  elif [[ "$color_scheme" == "'prefer-light'" ]]; then
+    export THEME="light"
+  else
+    export THEME="default"
+  fi
+
+  # Optionally print the current theme for debugging
+  # echo "Current theme is set to: $THEME"
+fi
+
 COLOR_SCHEME=$THEME
 THEME_FILE=~/.config/kitty/theme.conf
 
 # Create or overwrite theme.conf
 {
-    if [[ "$COLOR_SCHEME" == "dark" ]]; then
-        echo "include themes/kanagawa.conf"
-        echo "# background_image_layout tiled"
-        echo "# background_image /home/vision/Downloads/pt.png"
-        echo "# background_tint 0.55"
-    else
-        echo "# include themes/kanagawa.conf"
-        echo "include themes/latte.conf"
-        echo "background_image_layout tiled"
-        echo "background_image /home/vision/Downloads/pt.png"
-        echo "background_tint 0.55"
-    fi
-} > "$THEME_FILE"
+  if [[ "$COLOR_SCHEME" == "dark" ]]; then
+    echo "include themes/kanagawa.conf"
+    echo "# background_image_layout tiled"
+    echo "# background_image /home/vision/Pictures/wall/pt.png"
+    echo "# background_tint 0.55"
+  else
+    echo "# include themes/kanagawa.conf"
+    echo "include themes/latte.conf"
+    echo "background_image_layout tiled"
+    echo "background_image /home/vision/Pictures/wall/pt.png"
+    echo "background_tint 0.55"
+  fi
+} >"$THEME_FILE"
+
+if [[ "$COLOR_SCHEME" == "light" ]]; then
+  echo "dark" >~/.theme
+  ln -sf ~/.config/k9s/skins/catppuccin-frappe.yaml ~/.config/k9s/skins/default.yaml
+  echo "set -g @catppuccin_flavour 'latte'" >~/.config/tmux/theme.conf
+else
+  echo "light" >~/.theme
+  ln -sf ~/.config/k9s/skins/catppuccin-latte.yaml ~/.config/k9s/skins/default.yaml
+  echo "set -g @catppuccin_flavour 'frappe'" >~/.config/tmux/theme.conf
+fi

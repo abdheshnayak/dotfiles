@@ -19,9 +19,6 @@ setopt HIST_BEEP
 
 # Luke's config for the Zoomer Shell
 
-# autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/shortcutrc" ] && source "$HOME/.config/zsh/shortcutrc"
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
@@ -88,28 +85,13 @@ bindkey -s '^p' 'code .\n'  # zsh
 bindkey -s '^t' '$(tmux -2u a || tmux -2u)\n'
 
 
-
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
-
-# powerlevel10k enable
-# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # fuzzy finder setup
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
 
-# Load zsh-syntax-highlighting; should be last.
-# ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(/mnt/c)
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# path_array=("${(@s/:/)PATH}")
-#
-# for dir in "${path_array[@]}"; do
-#     ZSH_HIGHLIGHT_DIRS_BLACKLIST+=(\"$dir\")
-# done
-#
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #
 #
@@ -142,10 +124,6 @@ bindkey "^X" highlight_command
 
 export LANG=en_US.UTF-8
 
-PATH=$PATH:/opt/intellij-idea-ultimate-edition/bin
-
-
-
 function xg {
   DRI_PRIME=1 $@
 }
@@ -157,23 +135,5 @@ eval "$(starship init zsh)"
 
 
 eval "$(zoxide init zsh)"
-
-
-if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-    # Fetch the current color scheme
-    color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
-
-    # Remove quotes around the result and check the value
-    if [[ "$color_scheme" == "'prefer-dark'" ]]; then
-        export THEME="dark"
-    elif [[ "$color_scheme" == "'prefer-light'" ]]; then
-        export THEME="light"
-    else
-        export THEME="default"
-    fi
-
-    # Optionally print the current theme for debugging
-    # echo "Current theme is set to: $THEME"
-fi
 
 settheme

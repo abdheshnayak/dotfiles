@@ -1,0 +1,8 @@
+version: "3"
+
+
+tasks:
+  default:
+    cmds:
+      - nodemon -q -e "tsx,scss,ts" --signal SIGTERM --exec "ags run"
+

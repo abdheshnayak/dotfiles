@@ -1,10 +1,7 @@
-## I3WM Config with Archlinux
+## dotfiles for macos
 
 # Tools/applications Used
 - stow
-- rofi
-- i3Blocks
-- i3gaps
 - neovim
 
 

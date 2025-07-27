@@ -17,7 +17,9 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP
 
-# Luke's config for the Zoomer Shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 # autoload -U colors && colors
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -66,6 +68,10 @@ zle-line-init() {
 }
 zle -N zle-line-init
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line
+
 # Use beam shape cursor on startup.
 echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
@@ -111,3 +117,5 @@ fi
 if [ -x "$(command -v settheme)" ]; then
   settheme
 fi
+
+[ -f "$HOME/.config/zsh/creds" ] && source "$HOME/.config/zsh/creds"

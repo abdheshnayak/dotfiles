@@ -18,21 +18,21 @@ vim.keymap.set("n", "<A-m>", function()
   sts.filtered_jump("default", true) --> true means jump forward
 end, opts)
 
-vim.keymap.set("n", "<C-j>", function() -- jump to all that you specify
-  sts.filtered_jump({
-    "import_declaration",
-    "type_declaration",
-    "function_declration",
-    "method_declaration",
-    "const_declaration",
-
-    "if_statement",
-    "else_statement",
-    "return_statement",
-    "for_statement",
-    "switch_statement",
-  }, true)
-end, opts)
+-- vim.keymap.set("n", "<C-j>", function() -- jump to all that you specify
+--   sts.filtered_jump({
+--     "import_declaration",
+--     "type_declaration",
+--     "function_declration",
+--     "method_declaration",
+--     "const_declaration",
+--
+--     "if_statement",
+--     "else_statement",
+--     "return_statement",
+--     "for_statement",
+--     "switch_statement",
+--   }, true)
+-- end, opts)
 
 vim.keymap.set("n", "<C-S-j>", function()
   sts.filtered_jump({
@@ -44,36 +44,36 @@ vim.keymap.set("n", "<C-S-j>", function()
   }, true)
 end)
 
-vim.keymap.set("n", "<C-k>", function() -- jump to all that you specify
-  sts.filtered_jump({
-    -- "import_declaration",
-    -- "type_declaration",
-    -- "const_declaration",
-    -- "function",
-    -- "function_call",
-    -- "method_declaration",
-    -- "function_declration",
-    -- "if_statement",
-    -- "else_clause",
-    -- "else_statement",
-    -- "elseif_statement",
-    -- "for_statement",
-    -- "while_statement",
-    -- "switch_statement",
-
-    "import_declaration",
-    "type_declaration",
-    "function_declration",
-    "method_declaration",
-    "const_declaration",
-
-    "if_statement",
-    "else_statement",
-    "return_statement",
-    "for_statement",
-    "switch_statement",
-  }, false)
-end, opts)
+-- vim.keymap.set("n", "<C-k>", function() -- jump to all that you specify
+--   sts.filtered_jump({
+--     -- "import_declaration",
+--     -- "type_declaration",
+--     -- "const_declaration",
+--     -- "function",
+--     -- "function_call",
+--     -- "method_declaration",
+--     -- "function_declration",
+--     -- "if_statement",
+--     -- "else_clause",
+--     -- "else_statement",
+--     -- "elseif_statement",
+--     -- "for_statement",
+--     -- "while_statement",
+--     -- "switch_statement",
+--
+--     "import_declaration",
+--     "type_declaration",
+--     "function_declration",
+--     "method_declaration",
+--     "const_declaration",
+--
+--     "if_statement",
+--     "else_statement",
+--     "return_statement",
+--     "for_statement",
+--     "switch_statement",
+--   }, false)
+-- end, opts)
 
 vim.keymap.set("n", "<C-S-k>", function()
   sts.filtered_jump({

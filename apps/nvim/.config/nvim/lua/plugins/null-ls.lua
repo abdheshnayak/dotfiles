@@ -162,27 +162,26 @@ null_ls.register(formatBuffer)
 -- Configuring null-ls
 null_ls.setup({
   sources = {
-    -- null_ls.builtins.diagnostics.eslint_d,
-    -- null_ls.builtins.code_actions.eslint_d,
-    -- null_ls.builtins.formatting.eslint_d,
-
-    -- lua
-    null_ls.builtins.formatting.stylua,
-
-    -- null_ls.builtins.completion.spell,
-    -- null_ls.builtins.code_actions.refactoring,
-    -- null_ls.builtins.diagnostics.golangci_lint,
-
-    -- null_ls.builtins.formatting.terraform_fmt,
-
-    -- golang
-
-    -- null_ls.builtins.formatting.gofumpt,
-    -- null_ls.builtins.formatting.goimports_reviser,
-
-
-    require("none-ls.diagnostics.eslint"),
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.formatting.djlint.with({
+      extra_args = { "--profile", "django" },
+    }),
   },
+  on_attach = function(client, bufnr)
+    -- Optional: format on save
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   buffer = bufnr,
+    --   callback = function()
+    --     vim.lsp.buf.format({
+    --       async = false,
+    --       filter = function(client)
+    --         return client.name == "null-ls"
+    --       end,
+    --     })
+    --   end,
+    -- })
+  end,
 })
 
 --[[ golangci-lint: (AUR) `yay golangci-lint` ]]

@@ -47,7 +47,8 @@ end)
 
 -- (without dapui)
 vim.keymap.set("n", "sdr", function()
-  require("dap").repl.toggle({}, "80vsplit")
+  -- require("dap").repl.toggle({}, "80vsplit")
+  require("dapui").open()
   vim.cmd("wincmd l")
 end)
 

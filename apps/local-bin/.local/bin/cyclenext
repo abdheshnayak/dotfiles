@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# List of apps to cycle through
+APPS=("kitty" "zen")
+
+# Create a state file in the system temp directory
+STATE_FILE="/tmp/current_app_index"
+
+# Default to first app if no state file exists
+if [[ -f "$STATE_FILE" ]]; then
+    LAST_INDEX=$(cat "$STATE_FILE")
+else
+    LAST_INDEX=0
+fi
+
+# Compute next index in cycle
+NEXT_INDEX=$(( (LAST_INDEX + 1) % ${#APPS[@]} ))
+
+# Save next index to state file
+echo "$NEXT_INDEX" > "$STATE_FILE"
+
+# Open the next app
+open -a "${APPS[$NEXT_INDEX]}"

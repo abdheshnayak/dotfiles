@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+# Capture stdout only
+out=$(aws "$@")
+
+# Print the captured stdout
+echo "$out"
+

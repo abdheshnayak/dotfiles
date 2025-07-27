@@ -54,14 +54,14 @@ local function on_attach(client, bufnr)
       async = false,
       filter = function(client)
         -- apply whatever logic you want (in this example, we'll only use null-ls)
-        -- if
-        --     vim.bo.filetype == "javascriptreact"
-        --     or vim.bo.filetype == "typescriptreact"
-        --     or vim.bo.filetype == "javascript"
-        --     or vim.bo.filetype == "typescript"
-        -- then
-        --   return client.name == "none-ls"
-        -- end
+        if
+            vim.bo.filetype == "python"
+        -- or vim.bo.filetype == "typescriptreact"
+        -- or vim.bo.filetype == "javascript"
+        -- or vim.bo.filetype == "typescript"
+        then
+          return client.name == "null-ls"
+        end
         return true
       end,
       -- bufnr = bufnr,
@@ -148,7 +148,7 @@ local lsp_servers = {
     base_dir .. "/bash-language-server",
     "start",
   },
-  r_language_server={
+  r_language_server = {
     base_dir .. "/r-languageserver"
   },
   python = {
@@ -446,6 +446,7 @@ lsp_config.pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   cmd = lsp_servers.python,
+  filetypes = { "python" },
 })
 
 lsp_config.gopls.setup({

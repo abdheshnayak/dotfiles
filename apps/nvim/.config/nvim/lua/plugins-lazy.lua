@@ -250,6 +250,76 @@ local function navigation()
       --   "chrisgrieser/nvim-various-textobjs",
       --   opts = { useDefaultKeymaps = true },
       -- },
+
+      {
+        'aaronik/treewalker.nvim',
+
+        -- The following options are the defaults.
+        -- Treewalker aims for sane defaults, so these are each individually optional,
+        -- and setup() does not need to be called, so the whole opts block is optional as well.
+        opts = {
+          -- Whether to briefly highlight the node after jumping to it
+          highlight = true,
+
+          -- How long should above highlight last (in ms)
+          highlight_duration = 250,
+
+          -- The color of the above highlight. Must be a valid vim highlight group.
+          -- (see :h highlight-group for options)
+          highlight_group = 'CursorLine',
+
+          -- Whether the plugin adds movements to the jumplist -- true | false | 'left'
+          --  true: All movements more than 1 line are added to the jumplist. This is the default,
+          --        and is meant to cover most use cases. It's modeled on how { and } natively add
+          --        to the jumplist.
+          --  false: Treewalker does not add to the jumplist at all
+          --  "left": Treewalker only adds :Treewalker Left to the jumplist. This is usually the most
+          --          likely one to be confusing, so it has its own mode.
+          jumplist = true,
+        }
+      },
+      {
+        "m4xshen/hardtime.nvim",
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {
+          enabled = false,
+        },
+      },
+      -- {
+      --   "folke/noice.nvim",
+      --   event = "VeryLazy",
+      --   config = function()
+      --     require("noice").setup({
+      --       cmdline = {
+      --         enabled = true,
+      --         view = "cmdline",
+      --         opts = {},
+      --       },
+      --       lsp = {
+      --         override = {
+      --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      --           ["vim.lsp.util.stylize_markdown"] = true,
+      --           ["cmp.entry.get_documentation"] = true,
+      --         },
+      --       },
+      --       -- you can enable a preset for easier configuration
+      --       presets = {
+      --         bottom_search = true,
+      --         command_palette = false,
+      --         long_message_to_split = true,
+      --         inc_rename = false,
+      --         lsp_doc_border = false,
+      --       },
+      --     })
+      --   end,
+      --   opts = {
+      --   },
+      --   dependencies = {
+      --     "MunifTanjim/nui.nvim",
+      --     "rcarriga/nvim-notify",
+      --   }
+      -- },
       {
         "tiagovla/scope.nvim",
         event = events.UIEnter,
@@ -439,15 +509,15 @@ local function lsp()
         --   end,
         -- },
         "b0o/schemastore.nvim",
-        -- {
-        --   "nvimtools/none-ls.nvim",
-        --   config = function()
-        --     require("plugins.null-ls")
-        --   end,
-        --   dependencies = {
-        --     "nvimtools/none-ls-extras.nvim"
-        --   },
-        -- },
+        {
+          "nvimtools/none-ls.nvim",
+          config = function()
+            require("plugins.null-ls")
+          end,
+          dependencies = {
+            "nvimtools/none-ls-extras.nvim"
+          },
+        },
 
         -- {
         --   "nvimdev/guard.nvim",
@@ -608,6 +678,19 @@ local function completions()
   }
 end
 
+local function note()
+  return {
+    {
+      "bngarren/checkmate.nvim",
+      ft = "markdown", -- Lazy loads for Markdown files matching patterns in 'files'
+      opts = {
+        -- your configuration here
+        -- or leave empty to use defaults
+      },
+    }
+  }
+end
+
 local function search_and_replace()
   -- return vim.tbl_extend(behavior, ...)
   return {
@@ -733,6 +816,8 @@ local function dap()
         end,
         dependencies = {
           "rcarriga/nvim-dap-ui",
+          "leoluz/nvim-dap-go",
+          "nvim-neotest/nvim-nio"
           -- "theHamsta/nvim-dap-virtual-text",
           -- { "jbyuki/one-small-step-for-vimkind", module = "osv" },
         },
@@ -962,7 +1047,8 @@ M.minimal = function()
   vim.list_extend(plugins, flutter())
   vim.list_extend(plugins, completions().minimal)
   vim.list_extend(plugins, search_and_replace())
-  -- vim.list_extend(plugins, dap().minimal)
+  vim.list_extend(plugins, dap().minimal)
+  vim.list_extend(plugins, note())
   vim.list_extend(plugins, terminals())
   vim.list_extend(plugins, status_and_tab_bars())
   vim.list_extend(plugins, misc())

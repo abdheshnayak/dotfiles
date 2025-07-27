@@ -1,0 +1,5 @@
+# MODIFIER
+# Using cmd as $mainMod like Hyprland SUPER key
+# You can change this to 'alt' or 'ctrl' if preferred
+
+cmd - return : cyclenext

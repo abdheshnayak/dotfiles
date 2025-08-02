@@ -4,7 +4,8 @@
 APPS=("kitty" "zen")
 
 # Create a state file in the system temp directory
-STATE_FILE="/tmp/current_app_index"
+STATE_FILE="/tmp/$HOME"
+mkdir -p "$(dirname "$STATE_FILE")"
 
 # Default to first app if no state file exists
 if [[ -f "$STATE_FILE" ]]; then

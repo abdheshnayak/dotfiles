@@ -30,10 +30,12 @@ export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 [ -f "$HOME/.config/zsh/tokens" ] && source "$HOME/.config/zsh/tokens"
 
-autoload -U compinit
+
+
+autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+compinit -u
 
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
@@ -67,6 +69,7 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
+
 
 autoload -U edit-command-line
 zle -N edit-command-line

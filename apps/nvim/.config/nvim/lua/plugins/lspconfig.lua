@@ -195,7 +195,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- local function config(_config)
 -- 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -366,8 +366,28 @@ lsp_config.tailwindcss.setup({
   cmd = lsp_servers.tailwindcss,
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "javascriptreact", "typescriptreact", "html", "css", "svelte" },
-  root_dir = lsp_config.util.root_pattern("tailwind.config.*"),
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "css",
+    "scss",
+    "sass",
+    "svelte",
+  },
+  root_dir = lsp_config.util.root_pattern(
+    "tailwind.config.js",
+    "tailwind.config.cjs",
+    "tailwind.config.mjs",
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "postcss.config.cjs",
+    "postcss.config.mjs",
+    "package.json",
+    ".git"
+  ),
   log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {},
 })

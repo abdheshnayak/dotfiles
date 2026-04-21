@@ -1,5 +1,6 @@
 local null_ls = require("null-ls")
 local api = vim.api
+local ruff = require("none-ls.diagnostics.ruff")
 
 -- local no_really = {
 -- 	method = null_ls.methods.DIAGNOSTICS,
@@ -163,7 +164,7 @@ null_ls.register(formatBuffer)
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.black,
-    null_ls.builtins.diagnostics.ruff,
+    ruff,
     null_ls.builtins.formatting.djlint.with({
       extra_args = { "--profile", "django" },
     }),
